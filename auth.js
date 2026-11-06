@@ -39,7 +39,7 @@ form.addEventListener("submit", async (event) => {
     if (mode === "signup") {
       const fullName = nameInput.value.trim();
       if (!fullName) throw new Error("Enter your full name.");
-      const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { full_name: fullName }, emailRedirectTo: location.origin + "/dashboard.html" } });
+      const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { full_name: fullName }, emailRedirectTo: `${location.origin}/auth-callback.html` } });
       if (error) throw error;
       if (data.session) location.href = "dashboard.html";
       else showMessage("Account created. Check your email to confirm your address, then sign in.");
@@ -53,7 +53,7 @@ form.addEventListener("submit", async (event) => {
 });
 googleButton.addEventListener("click", async () => {
   showMessage(""); googleButton.disabled = true;
-  const { error } = await supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.origin + "/dashboard.html" } });
+  const { error } = await supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo: `${location.origin}/auth-callback.html` } });
   if (error) { showMessage(error.message, true); googleButton.disabled = false; }
 });
 forgotButton.addEventListener("click", async () => {
