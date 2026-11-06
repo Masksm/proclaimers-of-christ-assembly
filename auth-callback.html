@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>Confirming your account | Proclaimers of Christ Assembly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <a class="auth-brand" href="index.html"><span class="auth-mark">✝</span><span>PROCLAIMERS<small>OF CHRIST ASSEMBLY</small></span></a>
+    <section class="auth-card callback-card" aria-live="polite">
+      <p class="auth-eyebrow">CHURCH COMMUNITY</p>
+      <h1 id="callback-title">Confirming your email.</h1>
+      <p class="auth-intro" id="callback-message">Please wait while we securely complete your account verification.</p>
+      <div class="callback-spinner" id="callback-spinner" aria-hidden="true"></div>
+      <a class="auth-submit callback-link" id="callback-link" href="login.html" hidden>Continue to sign in</a>
+    </section>
+    <a class="back-home" href="index.html">Back to church website</a>
+  </main>
+  <script type="module" src="auth-callback.js"></script>
+</body>
+</html>
