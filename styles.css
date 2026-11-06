@@ -115,3 +115,9 @@ body{background:#fbfaf7;color:#343a35}
 .contact-section{background:linear-gradient(rgba(249,248,243,.58),rgba(249,248,243,.64)),url("https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2000&q=90") center/cover}
 .site-footer{background:linear-gradient(rgba(239,236,227,.68),rgba(239,236,227,.75)),url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1800&q=90") center/cover}
 @media(max-width:760px){.hero-shade{background:linear-gradient(90deg,rgba(248,247,241,.79),rgba(248,247,241,.48)),linear-gradient(0deg,rgba(248,247,241,.10),transparent 42%)}.welcome{background-position:58% center}}
+
+
+/* Mobile welcome section: avoid showing the same photo twice */
+@media(max-width:760px){
+  .welcome-image-wrap{display:none}
+}
