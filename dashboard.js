@@ -9,7 +9,7 @@ else{
  if(error){title.textContent="Account access unavailable";intro.textContent="We could not verify your account role. Please try again later.";message.textContent=error.message;}
  else{
   const admin=role==="admin";
-  title.textContent=admin?"Welcome, Church Administrator.":"Welcome to the church family.";
+  if(admin){location.replace("admin.html");} else {title.textContent="Welcome to the church family."; }
   intro.textContent="Signed in as "+email;
   content.innerHTML=admin?'<div class="dashboard-panel"><h2>Administrator access</h2><p>Your administrator account is active. This area will hold church announcements, events, ministry updates and member administration.</p></div>':'<div class="dashboard-panel"><h2>Member account</h2><p>Your member account is active. Church updates and member features will appear here as they are added.</p></div>';
  }
