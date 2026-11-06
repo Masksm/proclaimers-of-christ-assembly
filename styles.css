@@ -203,3 +203,31 @@ h1,h2,h3,h4,h5,h6,
 @media(max-width:760px){
   .hero-shade{background:linear-gradient(rgba(248,247,241,.40),rgba(248,247,241,.40))}
 }
+
+
+/* Balanced background photography: 70% image visibility */
+/* 30% light overlay keeps text readable while allowing the photography to lead */
+.hero-shade{
+  background:linear-gradient(rgba(248,247,241,.30),rgba(248,247,241,.30));
+}
+.welcome{
+  background-image:linear-gradient(rgba(250,249,245,.30),rgba(250,249,245,.30)),url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=2000&q=90");
+}
+.services-section{
+  background-image:linear-gradient(rgba(250,249,245,.30),rgba(250,249,245,.30)),url("https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=2000&q=90");
+}
+.ministry-banner{
+  background-image:linear-gradient(rgba(247,245,239,.30),rgba(247,245,239,.30)),url("https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1800&q=90");
+}
+.events-section{
+  background-image:linear-gradient(rgba(249,248,243,.30),rgba(249,248,243,.30)),url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2000&q=90");
+}
+.giving{
+  background-image:linear-gradient(rgba(250,249,245,.30),rgba(250,249,245,.30)),url("https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=2000&q=90");
+}
+.contact-section{
+  background-image:linear-gradient(rgba(249,248,243,.30),rgba(249,248,243,.30)),url("https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2000&q=90");
+}
+.site-footer{
+  background-image:linear-gradient(rgba(239,236,227,.30),rgba(239,236,227,.30)),url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1800&q=90");
+}
