@@ -150,3 +150,56 @@ body{background:#fbfaf7;color:#343a35}
     background-position:58% center;
   }
 }
+
+
+/* Site-wide stronger typography and 60% photo visibility */
+/* Stronger, more readable typography throughout the site */
+body{font-weight:500}
+p,li,.nav-links,.announcement,.hero-copy,.welcome-copy>p:not(.eyebrow),
+.section-heading>p,.service-card>p,.events-inner>div:first-child>p:last-child,
+.event-placeholder p,.giving>div>p:not(.eyebrow),.contact-inner>div>p:last-child{
+  font-weight:500;
+}
+h1,h2,h3,h4,h5,h6,
+.brand-name,.nav-links>a,.button,.text-link,.eyebrow,
+.card-kicker,.service-time,.footer-bottom,.site-footer>p{
+  font-weight:700;
+}
+.hero h1,.welcome h2,.section-heading h2,.events-inner h2,
+.giving h2,.contact-inner h2,.ministry-banner h3,
+.service-card h3,.event-placeholder h3{
+  font-weight:700;
+}
+.hero h1 em,.welcome h2 em,.section-heading h2 em,
+.events-inner h2 em,.giving h2 em,.contact-inner h2 em{
+  font-weight:700;
+}
+
+/* Keep the photos prominent: 40% light overlay leaves roughly 60% image visibility */
+.hero-shade{
+  background:linear-gradient(90deg,rgba(248,247,241,.40) 0%,rgba(248,247,241,.40) 48%,rgba(248,247,241,.40) 100%);
+}
+.welcome{
+  background-image:linear-gradient(rgba(250,249,245,.40),rgba(250,249,245,.40)),url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=2000&q=90");
+}
+.services-section{
+  background-image:linear-gradient(rgba(250,249,245,.40),rgba(250,249,245,.40)),url("https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=2000&q=90");
+}
+.ministry-banner{
+  background-image:linear-gradient(rgba(247,245,239,.40),rgba(247,245,239,.40)),url("https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1800&q=90");
+}
+.events-section{
+  background-image:linear-gradient(rgba(249,248,243,.40),rgba(249,248,243,.40)),url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2000&q=90");
+}
+.giving{
+  background-image:linear-gradient(rgba(250,249,245,.40),rgba(250,249,245,.40)),url("https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=2000&q=90");
+}
+.contact-section{
+  background-image:linear-gradient(rgba(249,248,243,.40),rgba(249,248,243,.40)),url("https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2000&q=90");
+}
+.site-footer{
+  background-image:linear-gradient(rgba(239,236,227,.40),rgba(239,236,227,.40)),url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1800&q=90");
+}
+@media(max-width:760px){
+  .hero-shade{background:linear-gradient(rgba(248,247,241,.40),rgba(248,247,241,.40))}
+}
