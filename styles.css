@@ -52,3 +52,55 @@
   .welcome{background-position:60% center}
   .services-section,.events-section,.contact-section,.site-footer{background-position:center}
 }
+
+
+/* LIGHT IMAGE-LED THEME OVERRIDE */
+:root{--purple:#405448;--purple-2:#5e7164;--gold:#b49a68;--cream:#f7f5ef;--ink:#343a35;--muted:#73776f;--white:#fff}
+body{background:#fbfaf7;color:#343a35}
+.announcement{background:#eeeae0;color:#5b6258}
+.announcement-dot{color:#a88e5e}
+.brand{color:#46564b}
+.nav-links>a:hover,.nav-links .active{color:#8b754d}
+.nav-give{background:#e9e5d9;color:#39443c!important}
+.nav-give span{color:#8b754d}
+.hero{color:#303a32;background:#e8e5dc}
+.hero-image{filter:saturate(.78)}
+.hero-shade{background:linear-gradient(90deg,rgba(248,247,241,.92) 0%,rgba(248,247,241,.80) 48%,rgba(248,247,241,.25) 100%),linear-gradient(0deg,rgba(248,247,241,.18),transparent 45%)}
+.hero h1 em,.section-heading h2 em,.welcome h2 em,.events-inner h2 em,.giving h2 em,.contact-inner h2 em{color:#8b7955}
+.hero-copy{color:#555e55}
+.eyebrow span{background:#a58c5e}
+.button-gold{background:#d9c9a4;color:#343a35}
+.button-outline{border-color:rgba(52,58,53,.55);color:#343a35}
+.play,.hero-scroll b{color:#8b7955}
+.hero-bottom{color:#50594f}
+.welcome{background:linear-gradient(90deg,rgba(250,249,245,.94),rgba(250,249,245,.88)),url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=2000&q=85") center/cover;color:var(--ink)}
+.welcome h2,.section-heading h2,.giving h2{color:#39443c}
+.welcome-copy>p:not(.eyebrow){color:#656b63}
+.welcome .text-link{color:#46564b;border-color:#b49a68}
+.purple,.gold{color:#8b7955}
+.services-section{background:linear-gradient(rgba(250,249,245,.91),rgba(250,249,245,.94)),url("https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=2000&q=85") center/cover;color:var(--ink)}
+.services-section .section-heading h2{color:#39443c}
+.service-card,.service-card.featured{background:rgba(255,255,255,.93);color:var(--ink);border:1px solid #e8e3d8}
+.service-card>p:not(.card-kicker),.featured>p:not(.card-kicker){color:#73776f}
+.service-time,.card-kicker,.service-icon{color:#8b7955}
+.ministry-banner{background:linear-gradient(90deg,rgba(247,245,239,.86),rgba(247,245,239,.65)),url("https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1500&q=85") center/cover;color:#343a35}
+.ministry-banner .eyebrow{color:#62695f}
+.button-light{background:#e8e1d2;color:#39443c}
+.events-section{background:linear-gradient(rgba(249,248,243,.91),rgba(249,248,243,.93)),url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2000&q=85") center/cover;color:#343a35}
+.events-inner>div:first-child>p:last-child,.event-placeholder p{color:#656b63}
+.event-placeholder{border-color:#ddd7ca;background:rgba(255,255,255,.76)}
+.event-symbol{color:#9a8255}
+.giving{background:linear-gradient(90deg,rgba(250,249,245,.93),rgba(250,249,245,.87)),url("https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=2000&q=85") center/cover;color:#343a35}
+.giving h2{color:#39443c}
+.giving>div>p:not(.eyebrow){color:#656b63}
+.giving-icon{color:#9a8255}
+.button-purple{background:#e7e2d6;color:#39443c}
+.contact-section{background:linear-gradient(rgba(249,248,243,.91),rgba(249,248,243,.93)),url("https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2000&q=85") center/cover;color:#343a35}
+.contact-inner>div>p:last-child{color:#656b63}
+.site-footer{background:linear-gradient(rgba(239,236,227,.95),rgba(239,236,227,.97)),url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80") center/cover;color:#4a5149}
+.footer-brand{color:#39443c}
+.site-footer>p,.footer-bottom{color:#73776f}
+.footer-bottom{border-color:#d8d3c8}
+.footer-bottom a{color:#8b7955}
+.menu-toggle span{background:#46564b}
+@media(max-width:760px){.nav-links{background:#fbfaf7}.hero-shade{background:linear-gradient(90deg,rgba(248,247,241,.93),rgba(248,247,241,.73)),linear-gradient(0deg,rgba(248,247,241,.2),transparent 45%)}.ministry-banner{background-position:60% center}}
