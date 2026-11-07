@@ -109,6 +109,28 @@
       </div>
     </section>
 
+    <section class="events-manager" id="events">
+      <div class="section-heading"><div><span class="eyebrow">PUBLISH CHURCH UPDATES</span><h2>Events & announcements</h2><p>Create events, save drafts and publish updates to the public website.</p></div></div>
+      <div class="events-manager-grid">
+        <form id="event-form" class="event-form">
+          <div class="form-heading"><h3 id="event-form-title">Create an event</h3><span class="form-note">Fields marked * are required</span></div>
+          <input type="hidden" id="event-id">
+          <label>Event title *<input id="event-title" type="text" maxlength="160" required placeholder="e.g. Sunday Worship Service"></label>
+          <label>Description<textarea id="event-description" rows="4" placeholder="Share details about this programme..."></textarea></label>
+          <div class="form-two-col">
+            <label>Start date & time *<input id="event-start" type="datetime-local" required></label>
+            <label>End date & time<input id="event-end" type="datetime-local"></label>
+          </div>
+          <label>Venue<input id="event-venue" type="text" maxlength="180" placeholder="Event location"></label>
+          <label>Cover image URL<input id="event-image" type="url" placeholder="https://..."></label>
+          <label>Publication status<select id="event-status"><option value="draft">Save as draft</option><option value="published">Publish on website</option><option value="cancelled">Mark as cancelled</option></select></label>
+          <div class="form-actions"><button class="primary-button" id="event-submit" type="submit">Save event</button><button class="cancel-button" id="event-cancel" type="button" hidden>Cancel editing</button></div>
+          <p class="form-feedback" id="event-feedback" role="status" aria-live="polite"></p>
+        </form>
+        <div class="event-list-panel"><div class="event-list-heading"><div><h3>Saved events</h3><p>Drafts and published events</p></div><span id="event-count">0 events</span></div><div id="admin-event-list" class="admin-event-list"><p class="list-empty">Loading events…</p></div></div>
+      </div>
+    </section>
+
     <section class="bottom-grid">
       <article class="next-step-card">
         <span class="eyebrow">RECOMMENDED NEXT STEP</span>
