@@ -1,8 +1,130 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f5ef"><title>Admin Dashboard | Proclaimers of Christ Assembly"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="admin.css"></head>
-<body><aside class="sidebar" id="sidebar"><a class="brand" href="index.html"><b>✝</b><span>PROCLAIMERS<small>OF CHRIST ASSEMBLY</small></span></a><p class="nav-caption">ADMIN WORKSPACE</p><nav><a class="selected" href="#overview">Overview</a><a href="#website">Website content</a><a href="#events">Events & announcements</a><a href="#sermons">Sermons & media</a><a href="#ministries">Ministries</a><a href="#gallery">Photo gallery</a><a href="#prayer">Prayer requests</a><a href="#members">Members</a></nav><div class="side-bottom"><a href="index.html">View public website</a><button id="side-signout">Sign out</button></div></aside>
-<main class="main" id="overview"><header class="topbar"><button id="menu" aria-label="Open menu">☰</button><div><small>CHURCH MANAGEMENT</small><b>Administration</b></div><div class="profile"><span> A </span><div><b>Administrator</b><small id="admin-email">Verifying account…</small></div></div></header>
-<section class="hero"><div><small>PROCLAIMERS OF CHRIST ASSEMBLY</small><h1>Welcome to your<br><em>admin workspace.</em></h1><p>Manage your church website, publish updates and keep your community connected.</p></div><span class="cross">✝</span></section>
-<section class="section"><div class="section-heading"><div><small>AT A GLANCE</small><h2>Church overview</h2></div><span class="status">● Admin access</span></div><div class="stats"><article><i>▦</i><p>Upcoming events</p><b>Not configured</b><small>Event tools are coming next</small></article><article><i>▷</i><p>Sermons & media</p><b>Not configured</b><small>Media library not connected</small></article><article><i>♙</i><p>Registered members</p><b>Not connected</b><small>Member directory not built</small></article><article><i>♡</i><p>Prayer requests</p><b>Not configured</b><small>Private request tools not built</small></article></div></section>
-<section class="section" id="website"><div class="section-heading"><div><small>MANAGE YOUR CHURCH</small><h2>Administration tools</h2><p>These are the areas we'll connect to the database, one at a time.</p></div></div><div class="tools"><a href="#events"><i>▦</i><span><b>Events & announcements</b><small>Publish church programmes, dates and notices.</small></span><label>Next module</label></a><a href="#sermons"><i>▷</i><span><b>Sermons & media</b><small>Organise audio messages, videos and teaching resources.</small></span><label>Planned</label></a><a href="#ministries"><i>♧</i><span><b>Ministries & church information</b><small>Update ministry details, service times and church information.</small></span><label>Planned</label></a><a href="#gallery"><i>▧</i><span><b>Photo gallery</b><small>Prepare a library for church photographs.</small></span><label>Planned</label></a><a href="#prayer"><i>♡</i><span><b>Prayer requests</b><small>Review submitted requests with appropriate privacy.</small></span><label>Planned</label></a><a href="#members"><i>♙</i><span><b>Member accounts</b><small>View registered members and manage access.</small></span><label>Planned</label></a></div></section>
-<section class="bottom"><article><small>GETTING STARTED</small><h2>Your admin home is ready.</h2><p>The dashboard layout is in place. The next step is to build and connect each management tool securely.</p><a href="#events">Start with events & announcements</a></article><article><small>ACCOUNT SECURITY</small><h2>Administrator account</h2><p id="account-status">Checking your administrator permissions…</p><button id="signout">Sign out of account</button></article></section><footer>© <span id="year"></span> Proclaimers of Christ Assembly · Administration</footer></main><script type="module" src="admin.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f5ef">
+  <title>Admin Dashboard | Proclaimers of Christ Assembly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html" aria-label="Proclaimers of Christ Assembly home">
+      <span class="brand-mark">✝</span>
+      <span class="brand-name">PROCLAIMERS<small>OF CHRIST ASSEMBLY</small></span>
+    </a>
+    <div class="workspace-label">WORKSPACE</div>
+    <nav class="primary-nav" aria-label="Admin navigation">
+      <a class="nav-link selected" href="#overview"><span class="nav-icon">⌂</span>Overview</a>
+      <a class="nav-link" href="#website"><span class="nav-icon">▤</span>Website content</a>
+      <a class="nav-link" href="#events"><span class="nav-icon">▦</span>Events & announcements</a>
+      <a class="nav-link" href="#sermons"><span class="nav-icon">▷</span>Sermons & media</a>
+      <a class="nav-link" href="#ministries"><span class="nav-icon">♧</span>Ministries</a>
+      <a class="nav-link" href="#gallery"><span class="nav-icon">▧</span>Photo gallery</a>
+      <a class="nav-link" href="#prayer"><span class="nav-icon">♡</span>Prayer requests</a>
+      <a class="nav-link" href="#members"><span class="nav-icon">♙</span>Members</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="index.html" class="public-link"><span>↗</span> View public website</a>
+      <button id="side-signout" class="sidebar-signout"><span>⇥</span> Sign out</button>
+      <div class="sidebar-note">Faithfully serving our church community.</div>
+    </div>
+  </aside>
+
+  <main class="main" id="overview">
+    <header class="topbar">
+      <button id="menu" class="menu-button" aria-label="Open navigation">☰</button>
+      <div class="breadcrumb"><span>ADMINISTRATION</span><b>Dashboard</b></div>
+      <div class="topbar-right">
+        <span class="secure-label"><i></i> Secure admin session</span>
+        <div class="profile">
+          <span class="avatar">P</span>
+          <div><b>Administrator</b><small id="admin-email">Verifying account…</small></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="welcome-panel">
+      <div class="welcome-copy">
+        <span class="eyebrow">PROCLAIMERS OF CHRIST ASSEMBLY</span>
+        <h1>Good day.<br><em>Your church, in good hands.</em></h1>
+        <p>Welcome to your administration workspace. Keep your church website current, organised and connected with your community.</p>
+        <a class="welcome-action" href="#website">Explore management tools <span>→</span></a>
+      </div>
+      <div class="welcome-symbol" aria-hidden="true">✝</div>
+      <div class="welcome-image" aria-hidden="true"></div>
+    </section>
+
+    <section class="overview-section" aria-labelledby="overview-title">
+      <div class="section-heading">
+        <div><span class="eyebrow">YOUR WORKSPACE</span><h2 id="overview-title">Overview</h2><p>A quick look at the areas available to manage.</p></div>
+        <span class="admin-status"><i></i> Administrator access</span>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon sage">▦</span><span class="stat-state">NOT CONNECTED</span></div><p>Upcoming events</p><strong>—</strong><small>Event management has not been connected yet.</small></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon gold">▷</span><span class="stat-state">NOT CONNECTED</span></div><p>Sermons & media</p><strong>—</strong><small>Your media library will appear here.</small></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon blue">♙</span><span class="stat-state">NOT CONNECTED</span></div><p>Registered members</p><strong>—</strong><small>Member directory is not available yet.</small></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon rose">♡</span><span class="stat-state">NOT CONNECTED</span></div><p>Prayer requests</p><strong>—</strong><small>Private request management is not connected.</small></article>
+      </div>
+    </section>
+
+    <section class="management-section" id="website">
+      <div class="section-heading">
+        <div><span class="eyebrow">MANAGE YOUR CHURCH</span><h2>Management centre</h2><p>Choose an area to manage. Tools will become available as each module is built.</p></div>
+      </div>
+      <div class="management-grid">
+        <article class="management-card featured" id="events">
+          <div class="card-icon">▦</div><span class="module-status">NEXT TO BUILD</span>
+          <h3>Events & announcements</h3><p>Create church programmes, publish announcements and keep members informed about upcoming activities.</p>
+          <span class="card-foot">Event management <b>In planning</b></span>
+        </article>
+        <article class="management-card" id="sermons">
+          <div class="card-icon">▷</div><span class="module-status">PLANNED</span>
+          <h3>Sermons & media</h3><p>Organise sermon recordings, video messages and teaching resources for the congregation.</p>
+          <span class="card-foot">Media library <b>Not connected</b></span>
+        </article>
+        <article class="management-card" id="ministries">
+          <div class="card-icon">♧</div><span class="module-status">PLANNED</span>
+          <h3>Ministries & information</h3><p>Maintain ministry descriptions, church information and service details.</p>
+          <span class="card-foot">Website information <b>Not connected</b></span>
+        </article>
+        <article class="management-card" id="gallery">
+          <div class="card-icon">▧</div><span class="module-status">PLANNED</span>
+          <h3>Photo gallery</h3><p>Upload and organise photographs from services, programmes and church activities.</p>
+          <span class="card-foot">Image library <b>Not connected</b></span>
+        </article>
+        <article class="management-card" id="prayer">
+          <div class="card-icon">♡</div><span class="module-status">PLANNED</span>
+          <h3>Prayer requests</h3><p>Review and handle submitted prayer requests with appropriate privacy and care.</p>
+          <span class="card-foot">Request inbox <b>Not connected</b></span>
+        </article>
+        <article class="management-card" id="members">
+          <div class="card-icon">♙</div><span class="module-status">PLANNED</span>
+          <h3>Member accounts</h3><p>View registered accounts and manage member access and administrator permissions.</p>
+          <span class="card-foot">Member directory <b>Not connected</b></span>
+        </article>
+      </div>
+    </section>
+
+    <section class="bottom-grid">
+      <article class="next-step-card">
+        <span class="eyebrow">RECOMMENDED NEXT STEP</span>
+        <h2>Bring your events online.</h2>
+        <p>The events and announcements module is the best place to start. It will let administrators publish programmes and keep the congregation updated.</p>
+        <a href="#events">Events & announcements <span>→</span></a>
+      </article>
+      <article class="security-card">
+        <span class="eyebrow">ACCOUNT SECURITY</span>
+        <div class="security-heading"><span class="security-icon">✓</span><h2>Admin account verified</h2></div>
+        <p id="account-status">Checking your administrator permissions…</p>
+        <button id="signout" class="outline-button">Sign out of account</button>
+      </article>
+    </section>
+    <footer><span>© <span id="year"></span> Proclaimers of Christ Assembly</span><span>Administration workspace</span></footer>
+  </main>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
