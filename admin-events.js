@@ -3,6 +3,14 @@ const supabase=createClient("https://hlnkyczwdgvnrvuhdypk.supabase.co","sb_publi
 const form=document.querySelector("#event-form"),list=document.querySelector("#admin-event-list"),feedback=document.querySelector("#event-feedback"),submit=document.querySelector("#event-submit");
 const f={id:document.querySelector("#event-id"),title:document.querySelector("#event-title"),description:document.querySelector("#event-description"),start:document.querySelector("#event-start"),end:document.querySelector("#event-end"),venue:document.querySelector("#event-venue"),image:document.querySelector("#event-image"),status:document.querySelector("#event-status")};
 let events=[];
+const modal=document.querySelector('#events-modal');
+const launcher=document.querySelector('#events-card');
+function openModal(){modal.hidden=false;modal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');modal.querySelector('#event-title').focus();}
+function closeModal(){modal.hidden=true;modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');reset();}
+launcher.addEventListener('click',openModal);
+launcher.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal();}});
+modal.addEventListener('click',event=>{if(event.target.closest('[data-close-events]'))closeModal();});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!modal.hidden)closeModal();});
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const date=v=>new Intl.DateTimeFormat(undefined,{dateStyle:"medium",timeStyle:"short"}).format(new Date(v));
 const local=v=>{const d=new Date(v);return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,16)};
@@ -28,7 +36,7 @@ form.addEventListener("submit",async ev=>{
 document.querySelector("#event-cancel").addEventListener("click",reset);
 list.addEventListener("click",async ev=>{
  const edit=ev.target.closest("[data-edit]"),del=ev.target.closest("[data-delete]");
- if(edit){const e=events.find(x=>x.id===edit.dataset.edit);if(!e)return;f.id.value=e.id;f.title.value=e.title;f.description.value=e.description||"";f.start.value=local(e.starts_at);f.end.value=e.ends_at?local(e.ends_at):"";f.venue.value=e.venue||"";f.image.value=e.image_url||"";f.status.value=e.status;document.querySelector("#event-form-title").textContent="Edit event";submit.textContent="Update event";document.querySelector("#event-cancel").hidden=false;message("Editing "+e.title);form.scrollIntoView({behavior:"smooth",block:"start"})}
+ if(edit){const e=events.find(x=>x.id===edit.dataset.edit);if(!e)return;f.id.value=e.id;f.title.value=e.title;f.description.value=e.description||"";f.start.value=local(e.starts_at);f.end.value=e.ends_at?local(e.ends_at):"";f.venue.value=e.venue||"";f.image.value=e.image_url||"";f.status.value=e.status;document.querySelector("#event-form-title").textContent="Edit event";submit.textContent="Update event";document.querySelector("#event-cancel").hidden=false;message("Editing "+e.title);openModal();document.querySelector("#event-title").focus()}
  if(del){const e=events.find(x=>x.id===del.dataset.delete);if(!e||!confirm('Permanently delete "'+e.title+'"?'))return;del.disabled=true;const {error}=await supabase.from("church_events").delete().eq("id",e.id);if(error){message(error.message,true);del.disabled=false;return}message("Event deleted.");await load()}
 });
 await load();
