@@ -64,3 +64,4 @@ forgotButton.addEventListener("click", async () => {
 });
 const { data: { session } } = await supabase.auth.getSession();
 if (session) location.href = "dashboard.html";
+else if (new URLSearchParams(location.search).get("mode") === "signup") setMode("signup");
