@@ -86,10 +86,10 @@
           <h3>Sermons & media</h3><p>Organise sermon recordings, video messages and teaching resources for the congregation.</p>
           <span class="card-foot">Media library <b>Open manager</b></span>
         </article>
-        <article class="management-card" id="ministries">
-          <div class="card-icon">♧</div><span class="module-status">PLANNED</span>
-          <h3>Ministries & information</h3><p>Maintain ministry descriptions, church information and service details.</p>
-          <span class="card-foot">Website information <b>Not connected</b></span>
+        <article class="management-card ministries-launcher" id="ministries-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="ministries-modal">
+          <div class="card-icon">♧</div><span class="module-status">MANAGE MINISTRIES</span>
+          <h3>Ministries & departments</h3><p>Add ministry and department details, leaders, contact information and images for the church website.</p>
+          <span class="card-foot">Ministry directory <b>Open manager</b></span>
         </article>
         <article class="management-card" id="gallery">
           <div class="card-icon">▧</div><span class="module-status">PLANNED</span>
@@ -109,6 +109,29 @@
       </div>
     </section>
 
+    <section class="events-modal" id="ministries-modal" role="dialog" aria-modal="true" aria-labelledby="ministries-modal-title" aria-hidden="true" hidden>
+      <div class="events-modal-backdrop" data-close-ministries></div>
+      <div class="events-modal-panel" role="document">
+        <div class="events-modal-header">
+          <div><span class="eyebrow">BUILD YOUR CHURCH DIRECTORY</span><h2 id="ministries-modal-title">Ministries & departments</h2><p>Add the actual ministry names and information provided by the church.</p></div>
+          <button class="events-modal-close" type="button" aria-label="Close ministries manager" data-close-ministries>×</button>
+        </div>
+        <div class="events-manager-grid">
+          <form id="ministry-form" class="event-form">
+            <div class="form-heading"><h3 id="ministry-form-title">Add a ministry</h3><span class="form-note">Name is required</span></div>
+            <input type="hidden" id="ministry-id">
+            <label>Ministry or department name *<input id="ministry-name" type="text" maxlength="160" required placeholder="Enter the official name"></label>
+            <label>Description<textarea id="ministry-description" rows="4" placeholder="Describe the ministry and its purpose..."></textarea></label>
+            <div class="form-two-col"><label>Leader (optional)<input id="ministry-leader" type="text" maxlength="120" placeholder="Leader name"></label><label>Contact information (optional)<input id="ministry-contact" type="text" maxlength="180" placeholder="Church-approved contact"></label></div>
+            <label>Ministry image (optional)<input id="ministry-image" type="file" accept="image/jpeg,image/png,image/webp"><span class="image-upload-help">JPG, PNG or WebP. Maximum 5 MB.</span><span id="ministry-image-current" class="event-image-current" aria-live="polite"></span></label>
+            <label>Publication status<select id="ministry-status"><option value="draft">Save as draft</option><option value="published">Publish on website</option></select></label>
+            <div class="form-actions"><button class="primary-button" id="ministry-submit" type="submit">Save ministry</button><button class="cancel-button" id="ministry-cancel" type="button" hidden>Cancel editing</button><button class="cancel-button" type="button" data-close-ministries>Cancel</button></div>
+            <p class="form-feedback" id="ministry-feedback" role="status" aria-live="polite"></p>
+          </form>
+          <div class="event-list-panel"><div class="event-list-heading"><div><h3>Ministry directory</h3><p>Draft and published entries</p></div><span id="ministry-count">0 items</span></div><div id="admin-ministry-list" class="admin-event-list"><p class="list-empty">Loading ministries…</p></div></div>
+        </div>
+      </div>
+    </section>
     <section class="events-modal" id="sermons-modal" role="dialog" aria-modal="true" aria-labelledby="sermons-modal-title" aria-hidden="true" hidden>
       <div class="events-modal-backdrop" data-close-sermons></div>
       <div class="events-modal-panel" role="document">
@@ -185,5 +208,6 @@
   </main>
   <script type="module" src="admin.js"></script>
   <script type="module" src="admin-events.js"></script>\n  <script type="module" src="admin-sermons.js"></script>
+  <script type="module" src="admin-ministries.js"></script>
 </body>
 </html>
