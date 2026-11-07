@@ -1,4 +1,57 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f7f5ef"><title>My Account | Proclaimers of Christ Assembly"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="auth.css"></head>
-<body class="auth-page"><main class="auth-shell"><a class="auth-brand" href="index.html"><span class="auth-mark">✝</span><span>PROCLAIMERS<small>OF CHRIST ASSEMBLY</small></span></a><section class="auth-card dashboard-card"><p class="auth-eyebrow">YOUR CHURCH ACCOUNT</p><h1 id="dashboard-title">Loading your account…</h1><p class="auth-intro" id="dashboard-intro">Checking your sign-in and access level.</p><div id="dashboard-content"></div><button class="auth-submit" id="signout-button" type="button">Sign out</button><p class="auth-message" id="dashboard-message" role="status"></p></section><a class="back-home" href="index.html">Back to church website</a></main><script type="module" src="dashboard.js"></script></body></html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="description" content="Your member home at Proclaimers of Christ Assembly.">
+  <title>Member Home | Proclaimers of Christ Assembly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="member.css">
+</head>
+<body class="member-page">
+  <header class="member-header">
+    <a class="member-brand" href="index.html" aria-label="Proclaimers of Christ Assembly website">
+      <span class="member-mark" aria-hidden="true">✝</span>
+      <span>PROCLAIMERS<small>OF CHRIST ASSEMBLY</small></span>
+    </a>
+    <div class="member-header-actions">
+      <a class="member-site-link" href="index.html">Church website</a>
+      <button class="member-signout" id="signout-button" type="button">Sign out</button>
+    </div>
+  </header>
+  <main class="member-main">
+    <section class="member-welcome">
+      <div class="welcome-overlay"></div>
+      <div class="member-welcome-copy">
+        <p class="member-eyebrow">YOUR MEMBER SPACE</p>
+        <h1>Welcome home<span>,</span><br><em id="member-name">friend.</em></h1>
+        <p>Stay connected, grow in faith, and be part of what God is doing in our church family.</p>
+      </div>
+      <div class="welcome-scripture"><span>✦</span> “Let us consider how we may spur one another on toward love and good deeds.” <small>HEBREWS 10:24</small></div>
+    </section>
+    <section class="member-profile-strip">
+      <div class="member-avatar" id="member-avatar">M</div>
+      <div class="member-profile-info"><strong id="member-display-name">Church member</strong><span id="member-email">Loading your account…</span></div>
+      <span class="member-status"><i></i> Member account</span>
+    </section>
+    <section class="member-section">
+      <div class="member-section-heading"><div><p class="member-eyebrow">YOUR CHURCH FAMILY</p><h2>Stay connected.</h2></div><p>Everything you need to keep in touch<br>with your church community.</p></div>
+      <div class="member-feature-grid">
+        <article class="member-feature feature-announcements"><span class="feature-icon">✦</span><p class="feature-label">CHURCH UPDATES</p><h3>Announcements</h3><p>Important church news and updates will be shared here.</p><span class="feature-note">Updates coming soon</span></article>
+        <article class="member-feature feature-events"><span class="feature-icon">▦</span><p class="feature-label">WHAT'S HAPPENING</p><h3>Events & gatherings</h3><p>Keep track of church programs, gatherings, and special events.</p><span class="feature-note">Event schedule coming soon</span></article>
+        <article class="member-feature feature-prayer"><span class="feature-icon">♡</span><p class="feature-label">WALK IN FAITH</p><h3>Prayer & fellowship</h3><p>A place for prayer, encouragement, and growing together in Christ.</p><span class="feature-note">Member tools coming soon</span></article>
+      </div>
+    </section>
+    <section class="member-bottom-grid">
+      <article class="member-verse-card"><p class="member-eyebrow">A WORD FOR YOUR JOURNEY</p><blockquote>“Be devoted to one another in love. Honor one another above yourselves.”</blockquote><span>ROMANS 12:10</span></article>
+      <article class="member-help-card"><span class="help-symbol">✝</span><div><p class="member-eyebrow">WE'RE HERE FOR YOU</p><h3>Need to reach the church?</h3><p>For questions or support, visit the church website contact section.</p><a href="index.html#contact">Contact the church <b>↗</b></a></div></article>
+    </section>
+    <p class="member-message" id="dashboard-message" role="status" aria-live="polite"></p>
+  </main>
+  <footer class="member-footer"><span>© <span id="member-year"></span> Proclaimers of Christ Assembly</span><a href="index.html">Back to church website</a></footer>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
