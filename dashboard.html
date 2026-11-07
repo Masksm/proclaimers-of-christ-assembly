@@ -17,12 +17,13 @@
       <span class="member-mark" aria-hidden="true">✝</span>
       <span>PROCLAIMERS<small>OF CHRIST ASSEMBLY</small></span>
     </a>
-    <div class="member-header-actions">
-      <a class="member-site-link" href="index.html">Church website</a>
+    <button class="member-menu-toggle" id="member-menu-toggle" type="button" aria-label="Open member menu" aria-expanded="false">☰</button>
+    <nav class="member-nav" id="member-nav" aria-label="Member navigation">
+      <a href="#member-home">Home</a><a href="#member-events">Events</a><a href="#member-sermons">Sermons</a><a href="#member-prayer">Prayer request</a><a href="index.html#ministries">Ministries</a><a href="index.html">Church website</a>
       <button class="member-signout" id="signout-button" type="button">Sign out</button>
-    </div>
+    </nav>
   </header>
-  <main class="member-main">
+  <main class="member-main" id="member-home">
     <section class="member-welcome">
       <div class="welcome-overlay"></div>
       <div class="member-welcome-copy">
@@ -37,15 +38,16 @@
       <div class="member-profile-info"><strong id="member-display-name">Church member</strong><span id="member-email">Loading your account…</span></div>
       <span class="member-status"><i></i> Member account</span>
     </section>
-    <section class="member-section">
+    <section class="member-section" id="member-events">
       <div class="member-section-heading"><div><p class="member-eyebrow">YOUR CHURCH FAMILY</p><h2>Stay connected.</h2></div><p>Everything you need to keep in touch<br>with your church community.</p></div>
       <div class="member-feature-grid">
         <article class="member-feature feature-announcements"><span class="feature-icon">✦</span><p class="feature-label">CHURCH UPDATES</p><h3>Announcements</h3><p>Important church news and updates will be shared here.</p><span class="feature-note">Updates coming soon</span></article>
         <article class="member-feature feature-events"><span class="feature-icon">▦</span><p class="feature-label">WHAT'S HAPPENING</p><h3>Events & gatherings</h3><p>Keep track of church programs, gatherings, and special events.</p><div id="member-event-list" class="member-event-list" aria-live="polite"><p class="event-feed-empty">Loading published events…</p></div></article>
-        <article class="member-feature feature-sermons"><span class="feature-icon">▷</span><p class="feature-label">WATCH & LISTEN</p><h3>Sermons & media</h3><p>Watch and listen to messages and teaching from the church.</p><div id="member-sermon-list" class="member-sermon-list" aria-live="polite"><p class="event-feed-empty">Loading sermons…</p></div></article>
-        <article class="member-feature feature-prayer"><span class="feature-icon">♡</span><p class="feature-label">WALK IN FAITH</p><h3>Prayer & fellowship</h3><p>A place for prayer, encouragement, and growing together in Christ.</p><span class="feature-note">Member tools coming soon</span></article>
+        <article class="member-feature feature-sermons" id="member-sermons"><span class="feature-icon">▷</span><p class="feature-label">WATCH & LISTEN</p><h3>Sermons & media</h3><p>Watch and listen to messages and teaching from the church.</p><div id="member-sermon-list" class="member-sermon-list" aria-live="polite"><p class="event-feed-empty">Loading sermons…</p></div></article>
+        <article class="member-feature feature-prayer" id="member-prayer"><span class="feature-icon">♡</span><p class="feature-label">WALK IN FAITH</p><h3>Share a prayer request</h3><p>Submit a private request for the church prayer team to receive.</p><a class="member-prayer-link" href="#member-prayer-form">Open prayer form</a></article>
       </div>
     </section>
+    <section class="member-prayer-section" id="member-prayer-form"><div class="member-section-heading"><div><p class="member-eyebrow">PRIVATE MEMBER FEATURE</p><h2>Prayer request.</h2></div><p>Only authorised church administrators can view your request.</p></div><form id="member-prayer-request-form" class="member-prayer-form"><label>Your name (optional)<input id="member-prayer-name" type="text" maxlength="120" autocomplete="name" placeholder="Name"></label><label>Email for follow-up (optional)<input id="member-prayer-email" type="email" maxlength="254" autocomplete="email" placeholder="Email address"></label><label>Your prayer request *<textarea id="member-prayer-text" rows="5" minlength="10" maxlength="4000" required placeholder="Share your request..."></textarea></label><button class="member-prayer-submit" id="member-prayer-submit" type="submit">Submit prayer request</button><p id="member-prayer-feedback" class="member-message" role="status" aria-live="polite"></p></form></section>
     <section class="member-bottom-grid">
       <article class="member-verse-card"><p class="member-eyebrow">A WORD FOR YOUR JOURNEY</p><blockquote>“Be devoted to one another in love. Honor one another above yourselves.”</blockquote><span>ROMANS 12:10</span></article>
       <article class="member-help-card"><span class="help-symbol">✝</span><div><p class="member-eyebrow">WE'RE HERE FOR YOU</p><h3>Need to reach the church?</h3><p>For questions or support, visit the church website contact section.</p><a href="index.html#contact">Contact the church <b>↗</b></a></div></article>
@@ -54,6 +56,7 @@
   </main>
   <footer class="member-footer"><span>© <span id="member-year"></span> Proclaimers of Christ Assembly</span><a href="index.html">Back to church website</a></footer>
   <script type="module" src="dashboard.js"></script>
+  <script type="module" src="member-prayer.js"></script>
   <script type="module" src="events.js"></script>
   <script type="module" src="sermons.js"></script>
 </body>
