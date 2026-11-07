@@ -20,7 +20,7 @@
     <nav class="primary-nav" aria-label="Admin navigation">
       <a class="nav-link selected" href="#overview"><span class="nav-icon">⌂</span>Overview</a>
       <a class="nav-link" href="#website"><span class="nav-icon">▤</span>Website content</a>
-      <a class="nav-link" href="#events"><span class="nav-icon">▦</span>Events & announcements</a>
+      <a class="nav-link" href="#events-card"><span class="nav-icon">▦</span>Events & announcements</a>
       <a class="nav-link" href="#sermons"><span class="nav-icon">▷</span>Sermons & media</a>
       <a class="nav-link" href="#ministries"><span class="nav-icon">♧</span>Ministries</a>
       <a class="nav-link" href="#gallery"><span class="nav-icon">▧</span>Photo gallery</a>
@@ -76,10 +76,10 @@
         <div><span class="eyebrow">MANAGE YOUR CHURCH</span><h2>Management centre</h2><p>Choose an area to manage. Tools will become available as each module is built.</p></div>
       </div>
       <div class="management-grid">
-        <article class="management-card featured" id="events-card">
-          <div class="card-icon">▦</div><span class="module-status">NEXT TO BUILD</span>
+        <article class="management-card featured events-launcher" id="events-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="events-modal">
+          <div class="card-icon">▦</div><span class="module-status">MANAGE EVENTS</span>
           <h3>Events & announcements</h3><p>Create church programmes, publish announcements and keep members informed about upcoming activities.</p>
-          <span class="card-foot">Event management <b>In planning</b></span>
+          <span class="card-foot">Event management <b>Open manager</b></span>
         </article>
         <article class="management-card" id="sermons">
           <div class="card-icon">▷</div><span class="module-status">PLANNED</span>
@@ -109,34 +109,36 @@
       </div>
     </section>
 
-    <section class="events-manager" id="events">
-      <div class="section-heading"><div><span class="eyebrow">PUBLISH CHURCH UPDATES</span><h2>Events & announcements</h2><p>Create events, save drafts and publish updates to the public website.</p></div></div>
-      <div class="events-manager-grid">
-        <form id="event-form" class="event-form">
-          <div class="form-heading"><h3 id="event-form-title">Create an event</h3><span class="form-note">Fields marked * are required</span></div>
-          <input type="hidden" id="event-id">
-          <label>Event title *<input id="event-title" type="text" maxlength="160" required placeholder="e.g. Sunday Worship Service"></label>
-          <label>Description<textarea id="event-description" rows="4" placeholder="Share details about this programme..."></textarea></label>
-          <div class="form-two-col">
-            <label>Start date & time *<input id="event-start" type="datetime-local" required></label>
-            <label>End date & time<input id="event-end" type="datetime-local"></label>
-          </div>
-          <label>Venue<input id="event-venue" type="text" maxlength="180" placeholder="Event location"></label>
-          <label>Cover image URL<input id="event-image" type="url" placeholder="https://..."></label>
-          <label>Publication status<select id="event-status"><option value="draft">Save as draft</option><option value="published">Publish on website</option><option value="cancelled">Mark as cancelled</option></select></label>
-          <div class="form-actions"><button class="primary-button" id="event-submit" type="submit">Save event</button><button class="cancel-button" id="event-cancel" type="button" hidden>Cancel editing</button></div>
-          <p class="form-feedback" id="event-feedback" role="status" aria-live="polite"></p>
-        </form>
-        <div class="event-list-panel"><div class="event-list-heading"><div><h3>Saved events</h3><p>Drafts and published events</p></div><span id="event-count">0 events</span></div><div id="admin-event-list" class="admin-event-list"><p class="list-empty">Loading events…</p></div></div>
+    <section class="events-modal" id="events-modal" role="dialog" aria-modal="true" aria-labelledby="events-modal-title" aria-hidden="true" hidden>
+      <div class="events-modal-backdrop" data-close-events></div>
+      <div class="events-modal-panel" role="document">
+        <div class="events-modal-header">
+          <div><span class="eyebrow">PUBLISH CHURCH UPDATES</span><h2 id="events-modal-title">Events & announcements</h2><p>Create, edit, publish or remove church events.</p></div>
+          <button class="events-modal-close" type="button" aria-label="Close event manager" data-close-events>×</button>
+        </div>
+        <div class="events-manager-grid">
+          <form id="event-form" class="event-form">
+            <div class="form-heading"><h3 id="event-form-title">Create an event</h3><span class="form-note">Fields marked * are required</span></div>
+            <input type="hidden" id="event-id">
+            <label>Event title *<input id="event-title" type="text" maxlength="160" required placeholder="e.g. Sunday Worship Service"></label>
+            <label>Description<textarea id="event-description" rows="4" placeholder="Share details about this programme..."></textarea></label>
+            <div class="form-two-col"><label>Start date & time *<input id="event-start" type="datetime-local" required></label><label>End date & time<input id="event-end" type="datetime-local"></label></div>
+            <label>Venue<input id="event-venue" type="text" maxlength="180" placeholder="Event location"></label>
+            <label>Cover image URL<input id="event-image" type="url" placeholder="https://..."></label>
+            <label>Publication status<select id="event-status"><option value="draft">Save as draft</option><option value="published">Publish on website</option><option value="cancelled">Mark as cancelled</option></select></label>
+            <div class="form-actions"><button class="primary-button" id="event-submit" type="submit">Save event</button><button class="cancel-button" id="event-cancel" type="button" hidden>Cancel editing</button><button class="cancel-button" type="button" data-close-events>Cancel</button></div>
+            <p class="form-feedback" id="event-feedback" role="status" aria-live="polite"></p>
+          </form>
+          <div class="event-list-panel"><div class="event-list-heading"><div><h3>Saved events</h3><p>Drafts and published events</p></div><span id="event-count">0 events</span></div><div id="admin-event-list" class="admin-event-list"><p class="list-empty">Loading events…</p></div></div>
+        </div>
       </div>
     </section>
-
     <section class="bottom-grid">
       <article class="next-step-card">
         <span class="eyebrow">RECOMMENDED NEXT STEP</span>
         <h2>Bring your events online.</h2>
         <p>The events and announcements module is the best place to start. It will let administrators publish programmes and keep the congregation updated.</p>
-        <a href="#events">Events & announcements <span>→</span></a>
+        <a href="#events-card">Events & announcements <span>→</span></a>
       </article>
       <article class="security-card">
         <span class="eyebrow">ACCOUNT SECURITY</span>
