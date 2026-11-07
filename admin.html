@@ -124,7 +124,7 @@
             <label>Description<textarea id="event-description" rows="4" placeholder="Share details about this programme..."></textarea></label>
             <div class="form-two-col"><label>Start date & time *<input id="event-start" type="datetime-local" required></label><label>End date & time<input id="event-end" type="datetime-local"></label></div>
             <label>Venue<input id="event-venue" type="text" maxlength="180" placeholder="Event location"></label>
-            <label>Cover image URL<input id="event-image" type="url" placeholder="https://..."></label>
+            <label>Event cover image<input id="event-image" type="file" accept="image/jpeg,image/png,image/webp,image/gif"><span class="image-upload-help">Choose an image from your device. JPG, PNG, WebP or GIF. Maximum 5 MB.</span><span id="event-image-current" class="event-image-current" aria-live="polite"></span></label>
             <label>Publication status<select id="event-status"><option value="draft">Save as draft</option><option value="published">Publish on website</option><option value="cancelled">Mark as cancelled</option></select></label>
             <div class="form-actions"><button class="primary-button" id="event-submit" type="submit">Save event</button><button class="cancel-button" id="event-cancel" type="button" hidden>Cancel editing</button><button class="cancel-button" type="button" data-close-events>Cancel</button></div>
             <p class="form-feedback" id="event-feedback" role="status" aria-live="polite"></p>
