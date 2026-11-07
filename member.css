@@ -58,3 +58,13 @@ a{color:inherit;text-decoration:none}
 .member-footer a{color:var(--sage)}
 @media(max-width:760px){.member-header{height:72px;padding:0 5%}.member-brand{font-size:11px;gap:8px}.member-brand small{font-size:8px}.member-mark{font-size:28px}.member-header-actions{gap:10px}.member-site-link{font-size:10px}.member-signout{padding:8px 11px;font-size:10px}.member-main{width:90%}.member-welcome{margin-top:18px;min-height:390px;padding:30px 7%;display:block;background-position:58% center}.welcome-overlay{background:linear-gradient(90deg,rgba(35,49,39,.78),rgba(35,49,39,.48))}.member-welcome h1{font-size:43px}.welcome-scripture{max-width:none;margin-top:35px;font-size:14px}.member-profile-strip{margin-bottom:42px;padding:16px 4%;gap:10px}.member-avatar{width:40px;height:40px}.member-profile-info strong{font-size:11px}.member-profile-info span{font-size:10px}.member-status{font-size:9px;padding:7px 9px}.member-section-heading{display:block}.member-section-heading h2{font-size:32px}.member-section-heading>p{text-align:left;margin-top:12px}.member-feature-grid{grid-template-columns:1fr;gap:12px}.member-feature{min-height:210px;padding:24px}.member-bottom-grid{grid-template-columns:1fr;gap:12px}.member-verse-card{padding:25px}.member-verse-card blockquote{font-size:20px}.member-help-card{padding:24px;gap:15px}.member-footer{padding:20px 5%;flex-direction:column}.member-message{padding:0 5%}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+.member-event-list{display:grid;gap:10px;margin-top:18px}
+.member-event-list .public-event-card{display:flex;gap:10px;align-items:flex-start;padding:10px;background:#fff;border:1px solid var(--line);border-radius:3px}
+.member-event-list .public-event-card img{width:76px;height:76px;object-fit:cover;border-radius:2px}
+.member-event-list .public-event-content{min-width:0;padding:0}
+.member-event-list .public-event-date{display:block;font-size:9px;color:#927b50}
+.member-event-list .public-event-content h3{font:700 15px var(--serif);color:var(--sage-dark);margin:4px 0}
+.member-event-list .public-event-content p{font-size:10px;line-height:1.5;color:var(--muted);margin:0 0 4px}
+.member-event-list .public-event-venue{font-size:9px;color:#8b7955}
+.event-feed-empty{font-size:11px;line-height:1.6;color:var(--muted);margin:0;padding:12px 0}
