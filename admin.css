@@ -158,3 +158,14 @@ footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid 
 
 .image-upload-help{display:block;margin-top:6px;color:var(--muted);font-size:10px;line-height:1.5}
 .event-image-current{display:block;margin-top:5px;color:#6f795f;font-size:10px;line-height:1.5}
+
+
+/* Sermon and media manager */
+.sermons-launcher{cursor:pointer}
+.sermons-launcher:focus-visible{outline:3px solid #b59a65;outline-offset:3px}
+.sermon-admin-meta{font-size:8px;color:#92998e;line-height:1.6;margin-top:6px}
+.sermon-admin-preview{display:flex;gap:10px;align-items:center}
+.sermon-admin-preview img{width:58px;height:48px;object-fit:cover;border-radius:3px;background:#f0efe8}
+.sermon-admin-preview>div{min-width:0}
+.sermon-admin-preview h4{overflow-wrap:anywhere}
+.sermon-status-note{font-size:8px;color:#8b7955;text-transform:uppercase;letter-spacing:.7px}
