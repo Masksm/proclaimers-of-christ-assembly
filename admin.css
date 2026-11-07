@@ -155,3 +155,6 @@ footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid 
 .events-modal .events-manager-grid>*{min-width:0}
 @media(max-width:850px){.events-modal{padding:10px}.events-modal-panel{padding:17px;max-height:94vh}.events-modal .events-manager-grid{grid-template-columns:1fr}.events-modal-header h2{font-size:22px}}
 @media(max-width:480px){.events-modal .form-two-col{grid-template-columns:1fr}.events-modal .form-heading{align-items:flex-start;flex-direction:column}.events-modal .form-actions{flex-wrap:wrap}}
+
+.image-upload-help{display:block;margin-top:6px;color:var(--muted);font-size:10px;line-height:1.5}
+.event-image-current{display:block;margin-top:5px;color:#6f795f;font-size:10px;line-height:1.5}
