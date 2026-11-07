@@ -1,17 +1,35 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 const supabase = createClient("https://hlnkyczwdgvnrvuhdypk.supabase.co","sb_publishable_KRxRK1s-EIgOUZ7VdKBj_Q_WwqswkIl");
-const title=document.querySelector("#dashboard-title"), intro=document.querySelector("#dashboard-intro"), content=document.querySelector("#dashboard-content"), message=document.querySelector("#dashboard-message");
-const {data:{session}}=await supabase.auth.getSession();
-if(!session){location.replace("login.html");}
-else{
- const {data:role,error}=await supabase.rpc("get_my_role");
- const email=session.user.email||"";
- if(error){title.textContent="Account access unavailable";intro.textContent="We could not verify your account role. Please try again later.";message.textContent=error.message;}
- else{
-  const admin=role==="admin";
-  if(admin){location.replace("admin.html");} else {title.textContent="Welcome to the church family."; }
-  intro.textContent="Signed in as "+email;
-  content.innerHTML=admin?'<div class="dashboard-panel"><h2>Administrator access</h2><p>Your administrator account is active. This area will hold church announcements, events, ministry updates and member administration.</p></div>':'<div class="dashboard-panel"><h2>Member account</h2><p>Your member account is active. Church updates and member features will appear here as they are added.</p></div>';
- }
+
+const nameEl=document.querySelector("#member-name");
+const displayNameEl=document.querySelector("#member-display-name");
+const emailEl=document.querySelector("#member-email");
+const avatarEl=document.querySelector("#member-avatar");
+const messageEl=document.querySelector("#dashboard-message");
+document.querySelector("#member-year").textContent=new Date().getFullYear();
+
+const {data:{session},error:sessionError}=await supabase.auth.getSession();
+if(sessionError || !session){
+  location.replace("login.html");
+}else{
+  const {data:role,error:roleError}=await supabase.rpc("get_my_role");
+  if(roleError){
+    messageEl.textContent="We couldn't verify your account permissions. Please refresh or sign in again.";
+  }else if(role==="admin"){
+    location.replace("admin.html");
+  }else{
+    const user=session.user;
+    const metadataName=(user.user_metadata?.full_name||user.user_metadata?.name||"").trim();
+    const firstName=metadataName.split(/\s+/)[0]||"friend";
+    const shownName=metadataName||user.email||"Church member";
+    nameEl.textContent=firstName+".";
+    displayNameEl.textContent=shownName;
+    emailEl.textContent=user.email||"Member account";
+    avatarEl.textContent=(firstName[0]||user.email?.[0]||"M").toUpperCase();
+  }
 }
-document.querySelector("#signout-button").addEventListener("click",async()=>{await supabase.auth.signOut();location.replace("login.html");});
+document.querySelector("#signout-button").addEventListener("click",async()=>{
+  const {error}=await supabase.auth.signOut();
+  if(error){messageEl.textContent="Sign out failed. Please try again.";return;}
+  location.replace("login.html");
+});
