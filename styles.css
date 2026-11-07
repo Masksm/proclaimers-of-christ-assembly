@@ -300,3 +300,20 @@ h1,h2,h3,h4,h5,h6,
 @media(max-width:760px){
   .public-event-card img{height:auto;min-height:0;max-height:none}
 }
+
+
+/* Public sermon and media library */
+.sermons-section{padding:95px 0;background:#f2f1eb}
+.public-sermon-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.public-sermon-card{min-width:0;overflow:hidden;background:#fff;border:1px solid #e5e1d7;border-radius:6px;box-shadow:0 8px 24px rgba(48,57,48,.06)}
+.public-sermon-cover{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#e9e5da}
+.public-sermon-media{width:100%;aspect-ratio:16/9;background:#222;display:grid;place-items:center}
+.public-sermon-media iframe,.public-sermon-media video{width:100%;height:100%;border:0}
+.public-sermon-media audio{width:90%}
+.public-sermon-content{padding:20px 22px 22px}
+.public-sermon-content h3{font:700 23px/1.25 var(--serif);color:#39483d;margin:6px 0 9px}
+.public-sermon-meta{font-size:10px;font-weight:700;color:#8b7955;letter-spacing:.3px}
+.public-sermon-content p{font-size:12px;line-height:1.7;color:#697168;margin:0 0 10px}
+.public-sermon-link{display:inline-block;margin-top:7px;color:#526b57;font-size:11px;font-weight:800;border-bottom:1px solid #b49a68;padding-bottom:4px}
+.sermon-empty{grid-column:1/-1;padding:26px;background:#fff;border:1px solid #e5e1d7;color:#73776f;text-align:center;font-size:12px}
+@media(max-width:760px){.sermons-section{padding:70px 0}.public-sermon-list{grid-template-columns:1fr;gap:15px}.public-sermon-content{padding:17px}.public-sermon-content h3{font-size:21px}}
