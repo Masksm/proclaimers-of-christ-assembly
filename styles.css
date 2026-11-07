@@ -331,3 +331,22 @@ h1,h2,h3,h4,h5,h6,
 .ministry-empty{grid-column:1/-1;text-align:center;color:#73776f;background:rgba(255,255,255,.75);border:1px solid #e7e2d8;padding:25px;font-size:12px}
 @media(max-width:760px){.public-ministry-list{grid-template-columns:1fr;gap:14px}.public-ministry-card>img{height:auto;max-height:300px;object-fit:cover}.public-ministry-content{padding:18px}}
 @media(min-width:761px) and (max-width:1000px){.public-ministry-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* Private prayer request form */
+.prayer-request-section{padding:90px 0;background:#f2f0e8}
+.prayer-request-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:55px;align-items:start}
+.prayer-request-intro h2{font:700 clamp(34px,4vw,48px)/1.2 var(--serif);color:#394a3e;margin:0 0 18px}
+.prayer-request-intro h2 em{font-style:normal;color:#9a8153}
+.prayer-request-intro>p:not(.eyebrow){font-size:13px;line-height:1.8;color:#747970;max-width:430px}
+.prayer-privacy-note{padding:12px 15px;border-left:2px solid #b49a68;background:#fff;font-size:11px!important}
+.prayer-request-form{display:grid;gap:16px;padding:28px;background:#fff;border:1px solid #e7e2d8;border-radius:4px}
+.prayer-request-form label{display:grid;gap:7px;font-size:11px;font-weight:700;color:#405448}
+.prayer-request-form input,.prayer-request-form textarea{width:100%;border:1px solid #deded3;border-radius:3px;background:#fbfaf7;padding:12px;color:#303832;font:500 13px var(--sans);outline:none}
+.prayer-request-form input:focus,.prayer-request-form textarea:focus{border-color:#b49a68;box-shadow:0 0 0 2px #b49a6820}
+.prayer-request-form textarea{resize:vertical;line-height:1.7}
+.prayer-request-form .button{justify-self:start;border:0;cursor:pointer}
+.prayer-request-form button:disabled{opacity:.6;cursor:wait}
+.prayer-request-feedback{min-height:16px;margin:0;font-size:11px;line-height:1.6;color:#536b4e}
+.prayer-request-feedback.error{color:#a04f45}
+@media(max-width:760px){.prayer-request-section{padding:58px 0}.prayer-request-wrap{grid-template-columns:1fr;gap:25px}.prayer-request-form{padding:20px}}
