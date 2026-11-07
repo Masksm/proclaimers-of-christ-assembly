@@ -283,3 +283,20 @@ h1,h2,h3,h4,h5,h6,
 .public-event-content p{font-size:12px;line-height:1.75;color:#697168;margin:0 0 13px}
 .public-event-venue{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:#8b7955}
 @media(max-width:760px){.events-section{padding:72px 0}.events-inner{grid-template-columns:1fr;gap:28px}.event-placeholder.has-events{grid-template-columns:1fr;gap:16px}.public-event-card img{height:205px}.public-event-content{padding:18px}.public-event-content h3{font-size:22px}}
+
+
+/* Event artwork: show the complete uploaded image without cropping */
+.public-event-card img{
+  display:block;
+  width:100%;
+  height:auto;
+  min-height:0;
+  max-height:none;
+  aspect-ratio:auto;
+  object-fit:contain;
+  object-position:center;
+  background:#f1efe8;
+}
+@media(max-width:760px){
+  .public-event-card img{height:auto;min-height:0;max-height:none}
+}
