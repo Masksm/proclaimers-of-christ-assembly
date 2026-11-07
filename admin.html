@@ -96,10 +96,10 @@
           <h3>Photo gallery</h3><p>Upload and organise photographs from services, programmes and church activities.</p>
           <span class="card-foot">Image library <b>Not connected</b></span>
         </article>
-        <article class="management-card" id="prayer">
-          <div class="card-icon">♡</div><span class="module-status">PLANNED</span>
-          <h3>Prayer requests</h3><p>Review and handle submitted prayer requests with appropriate privacy and care.</p>
-          <span class="card-foot">Request inbox <b>Not connected</b></span>
+        <article class="management-card prayer-launcher" id="prayer-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="prayer-modal">
+          <div class="card-icon">♡</div><span class="module-status">PRIVATE REQUEST INBOX</span>
+          <h3>Prayer requests</h3><p>Review submitted prayer requests, mark them as being prayed for or answered, and manage the private inbox.</p>
+          <span class="card-foot">Request inbox <b>Open manager</b></span>
         </article>
         <article class="management-card" id="members">
           <div class="card-icon">♙</div><span class="module-status">PLANNED</span>
@@ -166,6 +166,13 @@
         </div>
       </div>
     </section>
+    <section class="events-modal" id="prayer-modal" role="dialog" aria-modal="true" aria-labelledby="prayer-modal-title" aria-hidden="true" hidden>
+      <div class="events-modal-backdrop" data-close-prayer></div>
+      <div class="events-modal-panel" role="document">
+        <div class="events-modal-header"><div><span class="eyebrow">PRIVATE CHURCH CARE</span><h2 id="prayer-modal-title">Prayer requests</h2><p>Only administrator accounts can view these submissions.</p></div><button class="events-modal-close" type="button" aria-label="Close prayer request manager" data-close-prayer>×</button></div>
+        <div class="event-list-panel prayer-inbox-panel"><div class="event-list-heading"><div><h3>Prayer request inbox</h3><p>Newest requests first. Update status or delete as needed.</p></div><span id="prayer-count">0 requests</span></div><p class="form-feedback" id="prayer-admin-feedback" role="status" aria-live="polite"></p><div id="admin-prayer-list" class="admin-event-list"><p class="list-empty">Loading private requests…</p></div></div>
+      </div>
+    </section>
     <section class="events-modal" id="events-modal" role="dialog" aria-modal="true" aria-labelledby="events-modal-title" aria-hidden="true" hidden>
       <div class="events-modal-backdrop" data-close-events></div>
       <div class="events-modal-panel" role="document">
@@ -209,5 +216,6 @@
   <script type="module" src="admin.js"></script>
   <script type="module" src="admin-events.js"></script>\n  <script type="module" src="admin-sermons.js"></script>
   <script type="module" src="admin-ministries.js"></script>
+  <script type="module" src="admin-prayer.js"></script>
 </body>
 </html>
