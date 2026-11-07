@@ -106,3 +106,14 @@ a{color:inherit;text-decoration:none}
   .member-event-list .public-event-card{flex-direction:column}
   .member-event-list .public-event-card img{width:100%;height:auto;min-height:0;max-height:none}
 }
+
+
+/* Member sermon and media feed */
+.feature-sermons{grid-column:1/-1;min-height:0;background:#f4f2eb}
+.member-sermon-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.member-sermon-card{display:flex;gap:11px;align-items:center;min-width:0;padding:10px;background:#fff;border:1px solid var(--line);border-radius:4px}
+.member-sermon-card img{width:82px;height:62px;object-fit:cover;border-radius:3px;background:#eee}
+.member-sermon-card h4{font:700 14px var(--serif);color:var(--sage-dark);margin:0 0 4px}
+.member-sermon-card p{font-size:9px;color:var(--muted);margin:0 0 5px}
+.member-sermon-card a{font-size:9px;font-weight:800;color:#8b7955}
+@media(max-width:760px){.feature-sermons{grid-column:auto}.member-sermon-list{grid-template-columns:1fr}}
