@@ -169,3 +169,8 @@ footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid 
 .sermon-admin-preview>div{min-width:0}
 .sermon-admin-preview h4{overflow-wrap:anywhere}
 .sermon-status-note{font-size:8px;color:#8b7955;text-transform:uppercase;letter-spacing:.7px}
+
+
+/* Ministry manager launcher */
+.ministries-launcher{cursor:pointer}
+.ministries-launcher:focus-visible{outline:3px solid #b59a65;outline-offset:3px}
