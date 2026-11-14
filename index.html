@@ -15,16 +15,30 @@
 <body>
   <div data-site-header></div>
   <main>
-    <section class="hero" id="home">
-      <div class="hero-image" role="img" aria-label="Congregation gathered in worship"></div>
-      <div class="hero-shade"></div>
-      <div class="hero-content">
-        <p class="eyebrow"><span></span> A HOUSE OF FAITH • HOPE • LOVE</p>
-        <h1>Proclaiming Christ.<br><em>Transforming Lives.</em></h1>
-        <p class="hero-copy">A family of believers growing in the Word, walking in love, and sharing the hope of Jesus Christ with the world.</p>
-        <div class="hero-actions"><a class="button button-gold" href="#about">Discover Our Church </a><a class="button button-outline" href="#services"><span class="play">▶</span> Join Us for Worship</a></div>
+    <section class="home-hero" id="home" aria-labelledby="home-title">
+      <div class="home-hero-copy">
+        <p class="home-kicker"><span></span> FAITH THAT BUILDS • LOVE THAT CONNECTS</p>
+        <h1 id="home-title">Proclaiming Christ.<br><em>Transforming lives.</em></h1>
+        <p class="home-hero-lead">A place to encounter God, grow in His Word, and build meaningful relationships through the love of Jesus Christ.</p>
+        <div class="home-hero-actions">
+          <a class="home-button home-button-gold" href="visit.html">Plan your visit <span aria-hidden="true">↗</span></a>
+          <a class="home-button home-button-ghost" href="#watch-live"><span class="home-play" aria-hidden="true">▶</span> Watch online</a>
+        </div>
+        <div class="home-hero-note"><span class="home-note-line"></span><span>WELCOME TO PROCLAIMERS OF CHRIST ASSEMBLY</span></div>
       </div>
-      <div class="hero-bottom"><span>“That they may know Him...”</span><span class="hero-scroll">SCROLL TO EXPLORE</span></div>
+      <div class="home-hero-visual">
+        <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1400&q=88" alt="A congregation gathered in worship" fetchpriority="high">
+        <div class="home-hero-image-shade"></div>
+        <div class="home-verse-card"><span>OUR HEART</span><p>“That they may know Him...”</p><small>FAITH · HOPE · LOVE</small></div>
+        <div class="home-image-index">01 <span></span> A CHURCH FAMILY</div>
+      </div>
+      <div class="home-hero-bottom"><span>ONE FAMILY. ONE FAITH. ONE PURPOSE.</span><a href="#about">SCROLL TO DISCOVER <b>↓</b></a></div>
+    </section>
+    <section class="home-pillars" aria-label="Our church values">
+      <div><span class="pillar-number">01</span><span><b>Worship</b><small>Honouring God together</small></span></div>
+      <div><span class="pillar-number">02</span><span><b>The Word</b><small>Growing in truth and faith</small></span></div>
+      <div><span class="pillar-number">03</span><span><b>Community</b><small>Walking through life together</small></span></div>
+      <a href="about.html">DISCOVER OUR CHURCH <span>↗</span></a>
     </section>
     <section class="welcome section-wrap" id="about">
       <div class="welcome-image-wrap"><img class="welcome-image" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=85" alt=""/></div>
