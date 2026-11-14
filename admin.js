@@ -3,8 +3,25 @@ const supabase=createClient("https://hlnkyczwdgvnrvuhdypk.supabase.co","sb_publi
 const {data:{session}}=await supabase.auth.getSession();
 if(!session){location.replace("login.html");}
 else{const {data:role,error}=await supabase.rpc("get_my_role");if(error||role!=="admin"){location.replace("dashboard.html");}else{const email=session.user.email||"Administrator";document.querySelector("#admin-email").textContent=email;document.querySelector("#account-status").textContent="Signed in as "+email+". Administrator permissions were confirmed by the database.";document.querySelector("#year").textContent=String(new Date().getFullYear());}}
+
+async function loadAdminOverview(){
+ const now=new Date().toISOString();
+ const metrics=[
+  ["#admin-upcoming-events",supabase.from("church_events").select("id",{count:"exact",head:true}).eq("status","published").gte("starts_at",now)],
+  ["#admin-published-sermons",supabase.from("church_sermons").select("id",{count:"exact",head:true}).eq("status","published")],
+  ["#admin-published-ministries",supabase.from("church_ministries").select("id",{count:"exact",head:true}).eq("status","published")],
+  ["#admin-new-prayers",supabase.from("church_prayer_requests").select("id",{count:"exact",head:true}).eq("status","submitted")]
+ ];
+ const results=await Promise.all(metrics.map(async ([selector,query])=>({selector,...await query})));
+ for(const result of results){
+  const target=document.querySelector(result.selector);
+  if(target)target.textContent=result.error?"—":String(result.count??0);
+ }
+}
+
 async function signOut(){await supabase.auth.signOut();location.replace("login.html");}
 document.querySelector("#signout").addEventListener("click",signOut);document.querySelector("#side-signout").addEventListener("click",signOut);
+if(document.querySelector("#admin-upcoming-events"))loadAdminOverview();
 const sidebar=document.querySelector("#sidebar"),menu=document.querySelector("#menu");menu.addEventListener("click",()=>sidebar.classList.toggle("open"));sidebar.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>sidebar.classList.remove("open")));
 
 /* Dashboard interaction layer */
