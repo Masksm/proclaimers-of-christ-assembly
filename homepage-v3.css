@@ -1,0 +1,109 @@
+/* Homepage experience: editorial, image-led and responsive */
+.home-v3{overflow:hidden;background:var(--pc-paper)}
+.home-v3 .home-hero{position:relative;min-height:min(790px,88vh);display:grid;grid-template-columns:1.02fr .98fr;background:var(--pc-forest-950);color:#fff}
+.home-v3 .home-hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:clamp(5rem,9vw,9rem) clamp(2rem,7vw,7rem);background:radial-gradient(circle at 15% 15%,rgba(89,124,94,.2),transparent 42%),var(--pc-forest-950)}
+.home-v3 .home-kicker{display:flex;align-items:center;gap:.7rem;color:var(--pc-gold-300);font-size:.7rem;font-weight:700;letter-spacing:.17em}
+.home-v3 .home-kicker:before{content:"";width:34px;height:1px;background:var(--pc-gold-400)}
+.home-v3 .home-hero h1{max-width:760px;margin:1.2rem 0;font-family:var(--pc-font-display);font-size:clamp(3.4rem,6.7vw,6.8rem);font-weight:600;line-height:.98;letter-spacing:-.055em}
+.home-v3 .home-hero h1 em{color:var(--pc-gold-300);font-weight:500}
+.home-v3 .home-hero-lead{max-width:490px;color:rgba(255,255,255,.75);font-size:1.05rem;line-height:1.8}
+.home-v3 .home-hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.7rem}
+.home-v3 .home-button{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;min-height:50px;padding:.85rem 1.3rem;border-radius:3px;font-weight:700;font-size:.88rem}
+.home-v3 .home-button-gold{background:var(--pc-gold-300);color:var(--pc-forest-950)}
+.home-v3 .home-button-ghost{border:1px solid rgba(255,255,255,.38);color:#fff}
+.home-v3 .home-button-ghost:hover{background:rgba(255,255,255,.1)}
+.home-v3 .home-hero-note{display:flex;align-items:center;gap:.8rem;margin-top:3.3rem;color:rgba(255,255,255,.55);font-size:.65rem;letter-spacing:.16em}
+.home-v3 .home-note-line{width:35px;height:1px;background:var(--pc-gold-400)}
+.home-v3 .home-hero-visual{position:relative;min-height:570px;overflow:hidden}
+.home-v3 .home-hero-visual>img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center}
+.home-v3 .home-hero-image-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,37,27,.12),rgba(17,37,27,.03) 45%,rgba(17,37,27,.35)),linear-gradient(0deg,rgba(17,37,27,.5),transparent 45%)}
+.home-v3 .home-verse-card{position:absolute;left:clamp(1.2rem,4vw,4rem);bottom:clamp(2rem,6vw,5rem);padding:1.4rem 1.6rem;background:rgba(248,247,240,.94);color:var(--pc-forest-950);box-shadow:var(--pc-shadow-lg);max-width:290px}
+.home-v3 .home-verse-card span,.home-v3 .home-verse-card small{font-size:.62rem;font-weight:700;letter-spacing:.15em;color:var(--pc-gold-700)}
+.home-v3 .home-verse-card p{font-family:var(--pc-font-display);font-size:1.55rem;line-height:1.2;margin:.55rem 0}
+.home-v3 .home-image-index{position:absolute;right:2rem;bottom:2rem;color:#fff;font-size:.66rem;letter-spacing:.14em}
+.home-v3 .home-image-index span{display:inline-block;width:35px;height:1px;background:var(--pc-gold-300);vertical-align:middle;margin:0 .65rem}
+.home-v3 .home-hero-bottom{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;justify-content:space-between;padding:1rem clamp(2rem,7vw,7rem);background:rgba(12,29,21,.56);color:rgba(255,255,255,.68);font-size:.63rem;letter-spacing:.15em}
+.home-v3 .home-hero-bottom a{color:var(--pc-gold-300)}
+.home-v3 .home-pillars{display:grid;grid-template-columns:repeat(3,1fr) 1.1fr;align-items:center;gap:1rem;padding:1.7rem max(7%,calc((100% - 1240px)/2));background:#fff;border-bottom:1px solid var(--pc-line)}
+.home-v3 .home-pillars>div{display:flex;align-items:center;gap:.9rem}
+.home-v3 .pillar-number{font-family:var(--pc-font-display);font-size:1.5rem;color:var(--pc-gold-600)}
+.home-v3 .home-pillars b,.home-v3 .home-pillars small{display:block}
+.home-v3 .home-pillars b{color:var(--pc-forest-900);font-size:.88rem}
+.home-v3 .home-pillars small{color:var(--pc-muted);font-size:.72rem}
+.home-v3 .home-pillars>a{justify-self:end;color:var(--pc-forest-800);font-size:.68rem;font-weight:800;letter-spacing:.1em}
+.home-v3 .home-section{padding:clamp(4rem,8vw,7.5rem) 0}
+.home-v3 .home-container{width:min(1180px,88%);margin:auto}
+.home-v3 .home-section-head{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:2.3rem}
+.home-v3 .home-eyebrow{margin:0 0 .8rem;color:var(--pc-gold-700);font-size:.68rem;font-weight:800;letter-spacing:.17em}
+.home-v3 .home-section-head h2,.home-v3 .home-welcome h2,.home-v3 .home-live-copy h2,.home-v3 .home-contact h2{margin:0;color:var(--pc-forest-950);font-family:var(--pc-font-display);font-size:clamp(2.3rem,4.3vw,4.1rem);line-height:1.05;letter-spacing:-.04em}
+.home-v3 .home-section-head h2 em,.home-v3 .home-welcome h2 em,.home-v3 .home-live-copy h2 em,.home-v3 .home-contact h2 em{color:var(--pc-gold-700);font-weight:500}
+.home-v3 .home-section-head>p{max-width:390px;margin:0;color:var(--pc-muted);font-size:.9rem;line-height:1.75}
+.home-v3 .home-welcome{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:clamp(2rem,7vw,6rem)}
+.home-v3 .home-welcome-photo{position:relative;min-height:470px}
+.home-v3 .home-welcome-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.home-v3 .home-welcome-photo:after{content:"";position:absolute;right:-18px;bottom:-18px;width:48%;height:48%;border-right:5px solid var(--pc-gold-400);border-bottom:5px solid var(--pc-gold-400);pointer-events:none}
+.home-v3 .home-welcome-copy>p:not(.home-eyebrow){color:var(--pc-muted);line-height:1.85}
+.home-v3 .home-text-link{display:inline-flex;gap:.8rem;align-items:center;margin-top:1rem;color:var(--pc-forest-800);font-weight:800;border-bottom:1px solid var(--pc-gold-500);padding-bottom:.55rem}
+.home-v3 .home-gatherings{background:var(--pc-paper-warm)}
+.home-v3 .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.home-v3 .service-card{position:relative;min-height:265px;padding:2rem;background:#fff;border:1px solid var(--pc-line);border-radius:5px}
+.home-v3 .service-card.featured{background:var(--pc-forest-900);color:#fff;border-color:var(--pc-forest-900)}
+.home-v3 .service-icon{font-size:1.8rem;color:var(--pc-gold-500)}
+.home-v3 .card-kicker{margin:1.2rem 0 .5rem;color:var(--pc-gold-700);font-size:.65rem;font-weight:800;letter-spacing:.14em}
+.home-v3 .service-card h3{font-family:var(--pc-font-display);font-size:1.6rem;font-weight:600;margin:.4rem 0}
+.home-v3 .service-card>p:not(.card-kicker){color:var(--pc-muted);font-size:.85rem;line-height:1.7}
+.home-v3 .service-card.featured>p:not(.card-kicker){color:rgba(255,255,255,.72)}
+.home-v3 .service-time{display:inline-block;margin-top:.6rem;color:var(--pc-gold-700);font-size:.72rem;font-weight:800}
+.home-v3 .home-ministry-banner{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:clamp(2rem,5vw,4rem);margin-bottom:2rem;color:#fff;background:linear-gradient(90deg,rgba(17,43,30,.95),rgba(17,43,30,.55)),url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=85") center/cover}
+.home-v3 .home-ministry-banner h3{font-family:var(--pc-font-display);font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:.5rem 0}
+.home-v3 .home-ministry-banner p{color:var(--pc-gold-300);font-size:.68rem;letter-spacing:.15em;font-weight:800}
+.home-v3 .home-ministry-banner a{padding:.9rem 1.2rem;background:#fff;color:var(--pc-forest-950);font-size:.8rem;font-weight:800;white-space:nowrap}
+.home-v3 .public-ministry-list,.home-v3 .public-event-list,.home-v3 .public-sermon-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}
+.home-v3 .public-ministry-card,.home-v3 .public-event-card,.home-v3 .public-sermon-card{overflow:hidden;background:#fff;border:1px solid var(--pc-line);border-radius:5px;box-shadow:var(--pc-shadow-sm)}
+.home-v3 .public-ministry-card>img,.home-v3 .public-event-card>img{width:100%;height:210px;object-fit:cover}
+.home-v3 .public-ministry-symbol{height:210px;display:grid;place-items:center;background:var(--pc-forest-100);color:var(--pc-forest-700);font-size:3rem}
+.home-v3 .public-ministry-content,.home-v3 .public-event-content,.home-v3 .public-sermon-content{padding:1.3rem}
+.home-v3 .public-ministry-content h3,.home-v3 .public-event-content h3,.home-v3 .public-sermon-content h3{margin:.2rem 0 .6rem;color:var(--pc-forest-950);font-family:var(--pc-font-display);font-size:1.35rem}
+.home-v3 .public-ministry-content p,.home-v3 .public-event-content p,.home-v3 .public-sermon-content p{color:var(--pc-muted);font-size:.82rem;line-height:1.7}
+.home-v3 .public-ministry-meta,.home-v3 .public-event-date,.home-v3 .public-event-venue,.home-v3 .public-sermon-meta{display:block;margin-top:.7rem;color:var(--pc-gold-700);font-size:.68rem;font-weight:800}
+.home-v3 .home-events{background:var(--pc-forest-950);color:#fff}
+.home-v3 .home-events .home-section-head h2{color:#fff}
+.home-v3 .home-events .home-section-head>p{color:rgba(255,255,255,.65)}
+.home-v3 .home-events .home-eyebrow{color:var(--pc-gold-300)}
+.home-v3 .home-events .public-event-card{color:var(--pc-ink)}
+.home-v3 .home-events .event-feed-empty,.home-v3 .home-events .event-placeholder{padding:2rem;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.75)}
+.home-v3 .home-live{background:var(--pc-paper-warm)}
+.home-v3 .home-live-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:2rem;align-items:center}
+.home-v3 .home-live-copy p:not(.home-eyebrow){color:var(--pc-muted);line-height:1.8}
+.home-v3 .watch-live-player{overflow:hidden;aspect-ratio:16/9;background:#101a14;box-shadow:var(--pc-shadow-lg);border-radius:5px}
+.home-v3 .watch-live-player iframe{display:block;width:100%;height:100%;border:0}
+.home-v3 .watch-live-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1rem}
+.home-v3 .watch-live-status{color:var(--pc-forest-800);font-size:.75rem;font-weight:800}
+.home-v3 .watch-live-dot{display:inline-block;width:8px;height:8px;margin-right:.45rem;border-radius:50%;background:#b94b43}
+.home-v3 .watch-live-footer a{color:var(--pc-forest-800);font-size:.75rem;font-weight:800}
+.home-v3 .public-sermon-art{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--pc-forest-100)}
+.home-v3 .sermon-card-thumb{width:100%;height:100%;object-fit:cover}
+.home-v3 .sermon-card-placeholder{display:grid;place-items:center;width:100%;height:100%;color:var(--pc-forest-700);font-size:3rem}
+.home-v3 .sermon-play-overlay{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:52px;height:52px;border:0;border-radius:50%;background:var(--pc-gold-300);color:var(--pc-forest-950);cursor:pointer}
+.home-v3 .sermon-watch-button{padding:.7rem 1rem;border:0;background:var(--pc-forest-800);color:#fff;font-weight:700;font-size:.75rem;cursor:pointer}
+.home-v3 .home-giving{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:3rem;background:#fff;border:1px solid var(--pc-line)}
+.home-v3 .home-giving h2{font-family:var(--pc-font-display);font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.1;color:var(--pc-forest-950);margin:.3rem 0}
+.home-v3 .home-giving p:not(.home-eyebrow){color:var(--pc-muted);font-size:.88rem}
+.home-v3 .home-giving a,.home-v3 .home-contact a{padding:.9rem 1.3rem;background:var(--pc-gold-300);color:var(--pc-forest-950);font-size:.8rem;font-weight:800;white-space:nowrap}
+.home-v3 .home-prayer{background:#e9eee8}
+.home-v3 .prayer-request-wrap{display:grid;grid-template-columns:1fr .8fr;gap:3rem;align-items:center}
+.home-v3 .prayer-request-intro h2{font-family:var(--pc-font-display);font-size:clamp(2.3rem,4vw,3.8rem);line-height:1.05;color:var(--pc-forest-950);margin:0}
+.home-v3 .prayer-request-intro>p:not(.home-eyebrow){max-width:550px;color:var(--pc-muted);line-height:1.8}
+.home-v3 .prayer-privacy-note{font-size:.75rem}
+.home-v3 .prayer-member-gate{padding:2rem;background:#fff;border:1px solid var(--pc-line);box-shadow:var(--pc-shadow-sm)}
+.home-v3 .prayer-member-gate h3{font-family:var(--pc-font-display);font-size:1.5rem;color:var(--pc-forest-950)}
+.home-v3 .prayer-member-gate p{color:var(--pc-muted);font-size:.85rem}
+.home-v3 .prayer-member-gate .button{display:inline-flex;margin:.5rem .5rem .5rem 0;padding:.8rem 1rem;background:var(--pc-forest-800);color:#fff;font-size:.76rem}
+.home-v3 .prayer-gate-login{display:inline-block;color:var(--pc-forest-800);font-size:.75rem;font-weight:800}
+.home-v3 .home-contact{padding:clamp(3rem,6vw,5.5rem) 0;background:var(--pc-forest-900);color:#fff}
+.home-v3 .home-contact .home-container{display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.home-v3 .home-contact h2{color:#fff}
+.home-v3 .home-contact .home-eyebrow{color:var(--pc-gold-300)}
+.home-v3 .home-contact p:last-child{color:rgba(255,255,255,.7)}
+@media(max-width:900px){.home-v3 .home-hero{grid-template-columns:1fr  .85fr}.home-v3 .home-hero-copy{padding-inline:2.5rem}.home-v3 .home-pillars{grid-template-columns:repeat(2,1fr)}.home-v3 .home-pillars>a{justify-self:start}.home-v3 .public-ministry-list,.home-v3 .public-event-list,.home-v3 .public-sermon-list{grid-template-columns:repeat(2,minmax(0,1fr))}.home-v3 .home-live-layout{grid-template-columns:1fr}.home-v3 .home-live-copy{max-width:600px}}
+@media(max-width:640px){.home-v3 .home-hero{display:flex;flex-direction:column;min-height:unset}.home-v3 .home-hero-copy{padding:5rem 1.4rem 3rem}.home-v3 .home-hero h1{font-size:clamp(3rem,14vw,4.5rem)}.home-v3 .home-hero-visual{min-height:390px}.home-v3 .home-hero-bottom{position:static;padding:.9rem 1.3rem;font-size:.55rem}.home-v3 .home-hero-note{margin-top:2rem}.home-v3 .home-pillars{grid-template-columns:1fr 1fr;padding:1.3rem;gap:1.2rem}.home-v3 .home-pillars>a{grid-column:1/-1}.home-v3 .home-section-head{display:block}.home-v3 .home-section-head>p{margin-top:1rem}.home-v3 .home-welcome{grid-template-columns:1fr}.home-v3 .home-welcome-photo{min-height:330px;margin-right:1rem}.home-v3 .service-grid,.home-v3 .public-ministry-list,.home-v3 .public-event-list,.home-v3 .public-sermon-list{grid-template-columns:1fr}.home-v3 .home-ministry-banner{display:block}.home-v3 .home-ministry-banner a{display:inline-block;margin-top:1rem}.home-v3 .watch-live-footer{align-items:flex-start;flex-direction:column}.home-v3 .home-giving{align-items:flex-start;flex-direction:column;padding:1.6rem}.home-v3 .prayer-request-wrap{grid-template-columns:1fr;gap:1.5rem}.home-v3 .home-contact .home-container{align-items:flex-start;flex-direction:column}}
