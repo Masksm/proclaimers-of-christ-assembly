@@ -10,6 +10,9 @@ const profileForm=document.querySelector("#member-profile-form");
 const profileNameInput=document.querySelector("#member-profile-name");
 const profileFeedback=document.querySelector("#member-profile-feedback");
 const profileSave=document.querySelector("#member-profile-save");
+const profileEmail=document.querySelector("#member-profile-email");
+const todayLabel=document.querySelector("#member-today");
+if(todayLabel)todayLabel.textContent=new Intl.DateTimeFormat(undefined,{weekday:"long",month:"long",day:"numeric"}).format(new Date()).toUpperCase();
 document.querySelector("#member-year").textContent=new Date().getFullYear();
 
 const {data:{session},error:sessionError}=await supabase.auth.getSession();
@@ -38,6 +41,7 @@ if(sessionError || !session){
       avatarEl.textContent=profileFirst[0].toUpperCase();
     }
     emailEl.textContent=user.email||"Member account";
+    if(profileEmail)profileEmail.textContent=user.email||"Email unavailable";
     avatarEl.textContent=((profile?.full_name||metadataName||user.email||"M")[0]||"M").toUpperCase();
   }
 }
@@ -48,32 +52,43 @@ document.querySelector("#signout-button").addEventListener("click",async()=>{
 });
 
 
-// Mobile navigation and subtle scroll reveals for the member homepage.
+// Member portal uses separate hidden views within one authenticated page.
 const memberMenu=document.querySelector("#member-menu-toggle");
 const memberNav=document.querySelector("#member-nav");
+const memberNavItems=[...document.querySelectorAll("[data-member-view]")];
+const memberViews=[...document.querySelectorAll("[data-view-panel]")];
+function showMemberView(view,updateHash=true){
+ const target=memberViews.find(panel=>panel.dataset.viewPanel===view);
+ if(!target)return;
+ memberViews.forEach(panel=>{
+  const active=panel===target;
+  panel.hidden=!active;
+  panel.classList.toggle("active",active);
+ });
+ memberNavItems.forEach(button=>{
+  const active=button.dataset.memberView===view;
+  button.classList.toggle("active",active);
+  if(active)button.setAttribute("aria-current","page");
+  else button.removeAttribute("aria-current");
+ });
+ if(updateHash)history.replaceState(null,"","#"+view);
+ memberNav?.classList.remove("open");
+ memberMenu?.setAttribute("aria-expanded","false");
+ if(memberMenu){memberMenu.setAttribute("aria-label","Open navigation");memberMenu.textContent="☰";}
+ window.scrollTo({top:0,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+}
+memberNavItems.forEach(button=>button.addEventListener("click",()=>showMemberView(button.dataset.memberView)));
+document.querySelectorAll("[data-open-member-view]").forEach(button=>button.addEventListener("click",()=>showMemberView(button.dataset.openMemberView)));
 if(memberMenu&&memberNav){
  memberMenu.addEventListener("click",()=>{
   const open=memberNav.classList.toggle("open");
   memberMenu.setAttribute("aria-expanded",String(open));
-  memberMenu.setAttribute("aria-label",open?"Close member menu":"Open member menu");
+  memberMenu.setAttribute("aria-label",open?"Close navigation":"Open navigation");
   memberMenu.textContent=open?"×":"☰";
  });
- memberNav.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{
-  memberNav.classList.remove("open");memberMenu.setAttribute("aria-expanded","false");
-  memberMenu.setAttribute("aria-label","Open member menu");memberMenu.textContent="☰";
- }));
 }
-const memberHeader=document.querySelector(".member-header");
-const updateMemberHeader=()=>memberHeader?.classList.toggle("scrolled",window.scrollY>24);
-window.addEventListener("scroll",updateMemberHeader,{passive:true});updateMemberHeader();
-const memberRevealTargets=document.querySelectorAll(".member-profile-strip,.member-section,.member-feature,.member-bottom-grid");
-if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window){
- const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-  if(entry.isIntersecting){entry.target.classList.add("member-reveal","is-visible");observer.unobserve(entry.target);}
- }),{threshold:.1});
- memberRevealTargets.forEach((el,index)=>{el.classList.add("member-reveal");el.style.transitionDelay=(index%3)*70+"ms";observer.observe(el);});
-}
-
+const initialView=location.hash.replace("#","");
+if(memberViews.some(panel=>panel.dataset.viewPanel===initialView))showMemberView(initialView,false);
 if(profileForm){
  profileForm.addEventListener("submit",async event=>{
   event.preventDefault();
