@@ -10,20 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site-architecture.css">
 </head>
 <body>
-  <div class="announcement"><span>YOU ARE WELCOME HERE</span><span class="announcement-dot">✦</span><span>Come and experience Christ</span></div>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Proclaimers of Christ Assembly home">
-      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M21 5h6v14h14v6H27v18h-6V25H7v-6h14z" fill="currentColor"/><path d="M5 30c5 8 12 12 19 12s14-4 19-12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-      <span class="brand-name">PROCLAIMERS <small>OF CHRIST ASSEMBLY</small></span>
-    </a>
-    <nav class="nav-links" aria-label="Main navigation">
-      <a class="active" href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#ministries">Ministries</a><a href="#events">Events</a><a href="#watch-live">Watch Live</a><a href="#sermons">Sermons</a><a href="#prayer-request">Prayer</a><a href="#contact">Contact</a>
-      <a class="nav-give" href="#giving">Give </a>
-    </nav>
-    <div class="header-actions"><a class="header-login" href="login.html">Login</a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button></div>
-  </header>
+  <div data-site-header></div>
   <main>
     <section class="hero" id="home">
       <div class="hero-image" role="img" aria-label="Congregation gathered in worship"></div>
@@ -80,7 +70,8 @@
     <section class="prayer-request-section" id="prayer-request"><div class="section-wrap prayer-request-wrap"><div class="prayer-request-intro"><p class="eyebrow purple">MEMBERS' PRAYER CARE</p><h2>How can we<br><em>pray for you?</em></h2><p>Prayer requests are a private member feature. Create an account or sign in to share a request with the church team.</p><p class="prayer-privacy-note">Submitted requests are visible only to authorised church administrators. Please avoid sharing highly sensitive personal information.</p></div><div class="prayer-member-gate"><span class="prayer-gate-icon">♡</span><h3>Prayer request access</h3><p>Sign in or become a church member to submit a prayer request.</p><a class="button button-purple" href="login.html?mode=signup">Create member account</a><a class="prayer-gate-login" href="login.html">Already have an account? Sign in</a></div></div></section>
     <section class="contact-section" id="contact"><div class="section-wrap contact-inner"><div><p class="eyebrow gold">WE WOULD LOVE TO HEAR FROM YOU</p><h2>Come be part of<br><em>the family.</em></h2><p>Have a question, prayer request, or want to visit? Reach out to us.</p></div><a class="button button-gold" href="mailto:hello@proclaimersofchristassembly.org">Get in touch </a></div></section>
   </main>
-  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark"><svg viewBox="0 0 48 48"><path d="M21 5h6v14h14v6H27v18h-6V25H7v-6h14z" fill="currentColor"/><path d="M5 30c5 8 12 12 19 12s14-4 19-12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="brand-name">PROCLAIMERS <small>OF CHRIST ASSEMBLY</small></span></a><p>Proclaiming Christ. Transforming Lives.</p><div class="footer-bottom"><span>© <span id="year"></span> Proclaimers of Christ Assembly. All rights reserved.</span><a href="#home">Back to top</a></div></footer>
+  <div data-site-footer></div>
+  <script src="site-shell.js"></script>
   <script src="script.js"></script>
   <script type="module" src="events.js"></script>
   <script type="module" src="sermons.js"></script>
