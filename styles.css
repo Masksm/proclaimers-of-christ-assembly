@@ -370,3 +370,44 @@ h1,h2,h3,h4,h5,h6,
 .watch-live-dot{width:9px;height:9px;border-radius:50%;background:#c8c4b9;box-shadow:0 0 0 4px #c8c4b91c}
 .watch-live-footer .button-purple{margin-left:0}
 @media(max-width:760px){.watch-live-section{padding:65px 0}.watch-live-heading{display:block}.watch-live-heading>p{margin-top:16px}.watch-live-footer{align-items:flex-start;flex-direction:column}.watch-live-footer .button{margin-left:0}}
+
+
+/* Modern motion and interaction layer */
+:root{--motion-ease:cubic-bezier(.22,.8,.25,1)}
+html{scroll-padding-top:96px}
+.site-header{position:sticky;top:0;z-index:50;box-shadow:0 8px 28px rgba(38,20,58,.055);backdrop-filter:blur(14px);transition:height .3s,box-shadow .3s}
+.site-header.scrolled{height:74px;box-shadow:0 12px 34px rgba(38,20,58,.12)}
+.brand-mark{transition:transform .5s var(--motion-ease)}
+.brand:hover .brand-mark{transform:rotate(-8deg) scale(1.06)}
+.nav-links>a:not(.nav-give){position:relative}
+.nav-links>a:not(.nav-give):after{content:"";position:absolute;left:0;right:100%;bottom:-8px;height:2px;background:var(--gold);transition:right .25s var(--motion-ease)}
+.nav-links>a:not(.nav-give):hover:after,.nav-links>a.active:not(.nav-give):after{right:0}
+.hero{isolation:isolate}
+.hero-image{animation:hero-drift 22s ease-in-out infinite alternate;will-change:transform}
+.hero-shade{background:linear-gradient(100deg,rgba(31,15,49,.92),rgba(37,20,58,.68) 52%,rgba(37,20,58,.18)),linear-gradient(0deg,rgba(25,13,40,.5),transparent 48%)}
+.hero-content>*{animation:hero-rise .85s var(--motion-ease) both}
+.hero-content .eyebrow{animation-delay:.08s}.hero-content h1{animation-delay:.18s}.hero-content .hero-copy{animation-delay:.3s}.hero-content .hero-actions{animation-delay:.42s}
+.hero h1 em{background:linear-gradient(100deg,#f0d89e,#c6a15a,#f0d89e);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gold-shimmer 7s linear infinite}
+.button{position:relative;overflow:hidden}
+.button:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.28) 48%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.button:hover:before{transform:translateX(120%)}
+.welcome-image-wrap{transition:transform .6s var(--motion-ease)}
+.welcome-image{transition:transform .8s var(--motion-ease),filter .8s}
+.welcome-image-wrap:hover .welcome-image{transform:scale(1.035);filter:saturate(1.12)}
+.service-card,.public-event-card,.public-sermon-card,.public-ministry-card{transition:transform .35s var(--motion-ease),box-shadow .35s,border-color .35s}
+.service-card:hover,.public-event-card:hover,.public-sermon-card:hover,.public-ministry-card:hover{transform:translateY(-7px);box-shadow:0 18px 42px rgba(39,21,61,.11);border-color:#d8c69f}
+.service-icon{transition:transform .4s var(--motion-ease)}
+.service-card:hover .service-icon{transform:translateY(-4px) rotate(10deg)}
+.ministry-banner{background-size:cover;transition:background-position 1s}
+.ministry-banner:hover{background-position:55% center}
+.watch-live-player{border-radius:10px;overflow:hidden;box-shadow:0 24px 70px rgba(39,21,61,.18);background:#17121e;transition:transform .4s,box-shadow .4s}
+.watch-live-player:hover{transform:translateY(-4px);box-shadow:0 30px 80px rgba(39,21,61,.24)}
+.watch-live-dot{animation:live-pulse 1.8s infinite}
+.section-reveal{opacity:0;transform:translateY(28px);transition:opacity .75s var(--motion-ease),transform .75s var(--motion-ease)}
+.section-reveal.is-visible{opacity:1;transform:translateY(0)}
+@keyframes hero-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes hero-drift{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.1) translate3d(-1.2%,1%,0)}}
+@keyframes gold-shimmer{to{background-position:200% center}}
+@keyframes live-pulse{0%,100%{box-shadow:0 0 0 0 rgba(207,70,70,.5)}50%{box-shadow:0 0 0 7px rgba(207,70,70,0)}}
+@media(max-width:760px){.site-header.scrolled{height:68px}.nav-links>a:not(.nav-give):after{display:none}.hero-image{animation-duration:28s}.section-reveal{transform:translateY(18px)}}
+@media(prefers-reduced-motion:reduce){.hero-image,.hero-content>*,.hero h1 em,.watch-live-dot{animation:none!important}.section-reveal{opacity:1;transform:none;transition:none}.service-card,.public-event-card,.public-sermon-card,.public-ministry-card,.button,.welcome-image{transition:none}}
