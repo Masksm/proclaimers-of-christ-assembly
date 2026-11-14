@@ -86,6 +86,6 @@ if(profileForm){
   profileSave.disabled=false;profileSave.textContent="Save profile";
   if(error){profileFeedback.textContent="Your profile could not be updated. Please try again.";profileFeedback.classList.add("error");return;}
   profileFeedback.classList.remove("error");profileFeedback.textContent="Profile updated.";
-  displayNameEl.textContent=fullName;const first=fullName.split(/\\s+/)[0]||"friend";nameEl.textContent=first+".";avatarEl.textContent=first[0].toUpperCase();
+  displayNameEl.textContent=fullName;const first=fullName.split(/\s+/)[0]||"friend";nameEl.textContent=first+".";avatarEl.textContent=first[0].toUpperCase();
  });
 }
