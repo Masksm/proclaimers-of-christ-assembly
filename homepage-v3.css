@@ -1,5 +1,5 @@
 /* Homepage experience: editorial, image-led and responsive */
-.home-v3{overflow:hidden;background:var(--pc-paper)}
+.home-v3{overflow-x:clip;overflow-y:auto;background:var(--pc-paper)}
 .home-v3 .home-hero{position:relative;min-height:min(790px,88vh);display:grid;grid-template-columns:1.02fr .98fr;background:var(--pc-forest-950);color:#fff}
 .home-v3 .home-hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:clamp(5rem,9vw,9rem) clamp(2rem,7vw,7rem);background:radial-gradient(circle at 15% 15%,rgba(89,124,94,.2),transparent 42%),var(--pc-forest-950)}
 .home-v3 .home-kicker{display:flex;align-items:center;gap:.7rem;color:var(--pc-gold-300);font-size:.7rem;font-weight:700;letter-spacing:.17em}
