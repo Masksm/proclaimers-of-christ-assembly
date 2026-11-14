@@ -13,5 +13,3 @@ const payload={request_text:document.querySelector("#member-prayer-text").value.
 const {error}=await supabase.from("church_prayer_requests").insert(payload);submit.disabled=false;submit.textContent="Submit prayer request";
 if(error){feedback.textContent="Your prayer request could not be submitted. Please try again.";feedback.classList.add("error");return;}form.reset();feedback.textContent="Your prayer request has been received. The church team will handle it privately.";
 });}
-const menu=document.querySelector("#member-menu-toggle"),nav=document.querySelector("#member-nav");
-if(menu&&nav){menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.setAttribute("aria-label",open?"Close member menu":"Open member menu");});nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.setAttribute("aria-label","Open member menu");}));}
