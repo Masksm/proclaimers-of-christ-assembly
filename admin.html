@@ -81,7 +81,7 @@
           <h3>Events & announcements</h3><p>Create church programmes, publish announcements and keep members informed about upcoming activities.</p>
           <span class="card-foot">Event management <b>Open manager</b></span>
         </article>
-        <article class="management-card sermons-launcher" id="sermons" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="sermons-modal">
+        <article class="management-card announcement-launcher" id="announcements-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="announcements-modal"><div class="card-icon">♧</div><span class="module-status">MEMBER COMMUNICATIONS</span><h3>Announcements centre</h3><p>Write and publish member updates, church notices and important information with an unread notification for members.</p><span class="card-foot">Member noticeboard <b>Open manager</b></span></article>\n        <article class="management-card sermons-launcher" id="sermons" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="sermons-modal">
           <div class="card-icon">▷</div><span class="module-status">MANAGE SERMONS</span>
           <h3>Sermons & media</h3><p>Organise sermon recordings, video messages and teaching resources for the congregation.</p>
           <span class="card-foot">Media library <b>Open manager</b></span>
@@ -197,7 +197,7 @@
         </div>
       </div>
     </section>
-    <section class="bottom-grid">
+    <section class="events-modal" id="announcements-modal" role="dialog" aria-modal="true" aria-labelledby="announcements-modal-title" aria-hidden="true" hidden><div class="events-modal-backdrop" data-close-announcements></div><div class="events-modal-panel" role="document"><div class="events-modal-header"><div><span class="eyebrow">MEMBER COMMUNICATIONS</span><h2 id="announcements-modal-title">Announcements centre</h2><p>Publish an announcement to create member notifications. Existing published notices remain visible in the member portal.</p></div><button class="events-modal-close" type="button" aria-label="Close announcement manager" data-close-announcements>×</button></div><div class="events-manager-grid"><form id="announcement-form" class="event-form"><div class="form-heading"><h3 id="announcement-form-title">Write announcement</h3><span class="form-note">Fields marked * required</span></div><input type="hidden" id="announcement-id"><label>Title *<input id="announcement-title" maxlength="180" required placeholder="e.g. Sunday service time update"></label><label>Message *<textarea id="announcement-body" rows="6" maxlength="5000" required placeholder="Write the notice for church members…"></textarea></label><label>Audience<select id="announcement-audience"><option value="members">Members only</option><option value="everyone">All portal users</option></select></label><label>Status<select id="announcement-status"><option value="draft">Save as draft</option><option value="published">Publish and notify members</option><option value="archived">Archive</option></select></label><div class="form-actions"><button class="primary-button" id="announcement-submit" type="submit">Save announcement</button><button class="cancel-button" id="announcement-cancel" type="button" hidden>Cancel editing</button><button class="cancel-button" type="button" data-close-announcements>Close</button></div><p class="form-feedback" id="announcement-feedback" role="status" aria-live="polite"></p></form><div class="event-list-panel"><div class="event-list-heading"><div><h3>Saved announcements</h3><p>Draft, published and archived notices</p></div><span id="announcement-count">0 notices</span></div><div id="admin-announcement-list" class="admin-event-list"><p class="list-empty">Loading notices…</p></div></div></div></div></section>\n    <section class="bottom-grid">
       <article class="next-step-card">
         <span class="eyebrow">RECOMMENDED NEXT STEP</span>
         <h2>Bring your events online.</h2>
@@ -217,6 +217,6 @@
   <script type="module" src="admin-events.js"></script>
   <script type="module" src="admin-sermons.js"></script>
   <script type="module" src="admin-ministries.js"></script>
-  <script type="module" src="admin-prayer.js"></script>
+  <script type="module" src="admin-prayer.js"></script>\n  <script type="module" src="admin-announcements.js"></script>
 </body>
 </html>
