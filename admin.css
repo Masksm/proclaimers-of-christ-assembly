@@ -193,3 +193,74 @@ body{background:linear-gradient(rgba(243,242,234,.90),rgba(243,242,234,.94)),url
 .main{background:transparent}
 .welcome-panel{box-shadow:0 12px 32px rgba(38,55,42,.08)}
 @media(prefers-reduced-motion:reduce){body{background-attachment:scroll}}
+
+
+/* Modern administrator workspace: depth, movement and responsive polish */
+:root{--admin-ease:cubic-bezier(.22,.8,.25,1)}
+html{scroll-padding-top:105px}
+.sidebar{box-shadow:12px 0 36px rgba(24,38,28,.12);background:linear-gradient(165deg,#304438 0%,#3c5545 58%,#293d32 100%)}
+.brand-mark{transition:transform .45s var(--admin-ease),background .3s}
+.brand:hover .brand-mark{transform:rotate(-9deg) scale(1.07);background:#ffffff12}
+.nav-link{position:relative;overflow:hidden;transition:background .25s,color .25s,transform .25s}
+.nav-link:hover{transform:translateX(3px);background:#ffffff20}
+.nav-link.selected{background:linear-gradient(90deg,#ffffff22,#ffffff0a);box-shadow:inset 3px 0 #d8c491}
+.nav-link.selected:after{content:"";position:absolute;right:13px;width:5px;height:5px;border-radius:50%;background:#d8c491}
+.main{min-height:100vh}
+.topbar{position:sticky;top:0;z-index:15;background:rgba(246,245,239,.86);backdrop-filter:blur(16px);transition:box-shadow .25s}
+.topbar.scrolled{box-shadow:0 10px 28px rgba(40,53,42,.08)}
+.welcome-panel{min-height:300px;border:0;border-radius:12px;box-shadow:0 18px 48px rgba(38,55,42,.1);isolation:isolate}
+.welcome-image{animation:admin-photo-drift 24s ease-in-out infinite alternate}
+.welcome-panel:before{background:linear-gradient(100deg,rgba(247,246,239,.97) 0%,rgba(247,246,239,.89) 48%,rgba(247,246,239,.28) 100%)}
+.welcome-panel:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 82% 20%,rgba(181,154,101,.16),transparent 30%)}
+.welcome-panel h1{font-size:clamp(38px,4.2vw,55px)}
+.welcome-panel h1 em{background:linear-gradient(100deg,#8c7850,#c1a66e,#8c7850);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:admin-gold-shift 8s linear infinite}
+.welcome-action{border-radius:5px;box-shadow:0 8px 20px rgba(38,65,47,.15);transition:transform .25s,box-shadow .25s,background .25s;position:relative;overflow:hidden}
+.welcome-action:hover{transform:translateY(-3px);box-shadow:0 13px 26px rgba(38,65,47,.22);background:#405b49}
+.welcome-symbol{transition:transform .6s var(--admin-ease);transform:translateY(-50%) rotate(-8deg)}
+.welcome-panel:hover .welcome-symbol{transform:translateY(-50%) rotate(0) scale(1.08)}
+.stat-card{position:relative;overflow:hidden;border-radius:10px;box-shadow:0 8px 24px rgba(40,55,43,.045);transition:transform .3s var(--admin-ease),box-shadow .3s,border-color .3s}
+.stat-card:after{content:"";position:absolute;width:110px;height:110px;right:-62px;bottom:-68px;border-radius:50%;background:rgba(181,154,101,.09);transition:transform .45s}
+.stat-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(40,55,43,.1);border-color:#d6c9ad}
+.stat-card:hover:after{transform:scale(1.6)}
+.stat-icon{transition:transform .3s}
+.stat-card:hover .stat-icon{transform:scale(1.08) rotate(-7deg)}
+.management-card{min-height:220px;border-radius:10px;box-shadow:0 7px 22px rgba(40,55,43,.035);transition:transform .35s var(--admin-ease),box-shadow .35s,border-color .35s}
+.management-card:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(40,55,43,.11);border-color:#d0c3a4}
+.management-card:focus-visible{outline:3px solid #b59a65;outline-offset:3px}
+.card-icon{width:40px;height:40px;border-radius:10px;transition:transform .35s,background .35s}
+.management-card:hover .card-icon{transform:translateY(-3px) rotate(-7deg);background:#e8eadf}
+.card-foot{align-items:center}
+.card-foot b{transition:color .2s,letter-spacing .2s}
+.management-card:hover .card-foot b{color:#6e805e;letter-spacing:.2px}
+.next-step-card,.security-card{border-radius:10px;box-shadow:0 8px 26px rgba(40,55,43,.045);transition:transform .3s,box-shadow .3s}
+.next-step-card:hover,.security-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(40,55,43,.09)}
+.outline-button,.primary-button,.cancel-button,.event-action{transition:transform .2s,background .2s,box-shadow .2s}
+.outline-button:hover,.primary-button:hover,.cancel-button:hover,.event-action:hover{transform:translateY(-1px)}
+.events-modal-panel{border-radius:13px;box-shadow:0 30px 100px rgba(10,20,12,.32);animation:admin-modal-in .28s var(--admin-ease) both}
+.events-modal-backdrop{animation:admin-backdrop-in .2s ease both}
+.event-form,.event-list-panel{border-radius:9px;box-shadow:0 5px 18px rgba(40,55,43,.035)}
+.event-form input,.event-form textarea,.event-form select{border-radius:6px;transition:border-color .2s,box-shadow .2s,background .2s}
+.event-form input:focus,.event-form textarea:focus,.event-form select:focus{background:#fff;box-shadow:0 0 0 3px rgba(129,151,122,.16)}
+.admin-event-item{border-radius:8px;transition:border-color .2s,box-shadow .2s,transform .2s}
+.admin-event-item:hover{border-color:#d8cfb9;box-shadow:0 5px 15px rgba(40,55,43,.06);transform:translateY(-1px)}
+.event-badge{border-radius:30px}
+.sidebar-signout,.public-link{border-radius:6px;transition:background .2s,transform .2s}
+.sidebar-signout:hover,.public-link:hover{background:#ffffff12;transform:translateX(2px)}
+.admin-reveal{opacity:0;transform:translateY(20px);transition:opacity .65s var(--admin-ease),transform .65s var(--admin-ease)}
+.admin-reveal.is-visible{opacity:1;transform:translateY(0)}
+@keyframes admin-photo-drift{from{transform:scale(1.02) translateX(0)}to{transform:scale(1.09) translateX(-1.1%)}}
+@keyframes admin-gold-shift{to{background-position:200% center}}
+@keyframes admin-modal-in{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes admin-backdrop-in{from{opacity:0}to{opacity:1}}
+@media(max-width:760px){
+ .topbar{height:70px}
+ .welcome-panel{border-radius:10px;min-height:270px}
+ .welcome-panel h1{font-size:37px}
+ .management-card{min-height:215px}
+ .sidebar{box-shadow:18px 0 45px rgba(15,25,18,.28)}
+}
+@media(prefers-reduced-motion:reduce){
+ .welcome-image,.welcome-panel h1 em{animation:none}
+ .admin-reveal{opacity:1;transform:none;transition:none}
+ .stat-card,.management-card,.next-step-card,.security-card,.nav-link,.events-modal-panel{transition:none;animation:none}
+}
