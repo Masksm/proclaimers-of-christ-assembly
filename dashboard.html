@@ -19,6 +19,7 @@
     </a>
     <div class="member-header-right">
       <span class="member-header-caption">MEMBER PORTAL</span>
+      <button class="member-notification-bell" id="member-notification-bell" type="button" data-open-member-view="announcements" aria-label="Open announcements"><span>♧</span><b id="member-notification-count" hidden>0</b></button>
       <a class="member-site-link" href="index.html">Church website ↗</a>
       <button class="member-signout" id="signout-button" type="button">Sign out</button>
       <button class="member-menu-toggle" id="member-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
@@ -34,6 +35,7 @@
       <p class="member-sidebar-label">YOUR SPACE</p>
       <nav class="member-side-nav" aria-label="Member portal navigation">
         <button type="button" class="member-nav-item active" data-member-view="home" aria-current="page"><span>⌂</span>Overview</button>
+        <button type="button" class="member-nav-item" data-member-view="announcements"><span>♧</span>Announcements <b class="member-nav-count" id="member-nav-count" hidden>0</b></button>
         <button type="button" class="member-nav-item" data-member-view="live"><span>◉</span>Watch live <i class="member-live-indicator"></i></button>
         <button type="button" class="member-nav-item" data-member-view="events"><span>▦</span>Events & programmes</button>
         <button type="button" class="member-nav-item" data-member-view="sermons"><span>▷</span>Sermons & messages</button>
@@ -66,7 +68,12 @@
         </div>
       </section>
 
-      <section class="member-view" id="member-view-live" data-view-panel="live" hidden>
+      
+      <section class="member-view" id="member-view-announcements" data-view-panel="announcements" hidden>
+        <div class="member-page-heading"><div><p class="member-eyebrow">CHURCH FAMILY UPDATES</p><h1>Announcements <em>& notices.</em></h1><p>Important messages, church news and updates shared with members.</p></div><span class="member-date-chip">MEMBER NOTIFICATION CENTRE</span></div>
+        <div class="member-content-panel"><div class="member-panel-heading"><div><span class="member-panel-icon">♧</span><div><h2>From the church</h2><p>Your church announcements and recent notifications.</p></div></div><button type="button" class="member-announcements-mark-all" id="member-mark-all-read">Mark all as read</button></div><div id="member-announcement-list" class="member-announcement-list" aria-live="polite"><p class="member-announcement-empty">Loading announcements…</p></div></div>
+      </section>
+\n      <section class="member-view" id="member-view-live" data-view-panel="live" hidden>
         <div class="member-page-heading"><div><p class="member-eyebrow">WORSHIP WITH US ONLINE</p><h1>Live worship <em>room.</em></h1><p>Join the broadcast from Proclaimers of Christ Assembly wherever you are.</p></div><span class="member-date-chip"><i></i> YOUTUBE LIVE PLAYER</span></div>
         <div class="member-live-panel">
           <div class="member-live-topline"><span><i class="member-live-indicator"></i> CHURCH BROADCAST</span><span>PROCLAIMERS OF CHRIST ASSEMBLY</span></div>
