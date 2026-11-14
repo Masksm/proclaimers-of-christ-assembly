@@ -468,3 +468,69 @@ body.sermon-viewer-open{overflow:hidden}
 .member-announcement-empty strong{display:block;color:#34483a;font:700 22px var(--serif)}
 .member-announcement-empty p{margin:8px 0 0;font-size:10px}
 @media(max-width:760px){.member-notification-bell{width:32px;height:32px;font-size:17px}.member-announcements-mark-all{padding:8px;font-size:8px}.member-announcement-list{padding:6px 10px}.member-announcement-item{padding:18px 12px}.member-announcement-item h3{font-size:18px}}
+
+
+/* Member dashboard refresh: clearer visual hierarchy and more intentional home layout */
+.member-portal-layout .member-main{max-width:1260px;padding-top:30px;padding-bottom:55px}
+.member-portal-layout .member-page-heading{align-items:center;margin-bottom:24px;padding:0 0 22px;border-bottom:1px solid #e5e5dc}
+.member-portal-layout .member-page-heading h1{font-size:clamp(34px,3.5vw,46px);line-height:1.15}
+.member-portal-layout .member-page-heading h1 em{color:#9d8354;font-style:normal}
+.member-portal-layout .member-date-chip{background:#fff;border:1px solid #e8e3d8;border-radius:30px;padding:10px 15px;color:#687466;font-size:8px;letter-spacing:1.2px}
+.member-portal-layout .member-welcome{min-height:390px;margin:0 0 34px;padding:48px 5.5%;border-radius:15px;background-position:center 43%;box-shadow:0 24px 55px rgba(30,47,37,.13)}
+.member-portal-layout .welcome-overlay{background:linear-gradient(100deg,rgba(26,43,33,.88),rgba(30,48,37,.58) 58%,rgba(30,48,37,.2))}
+.member-portal-layout .member-welcome-copy{max-width:570px}
+.member-portal-layout .member-welcome-copy h2{font:500 clamp(38px,4.3vw,57px)/1.12 var(--serif);letter-spacing:-.8px;margin:0;color:#fff}
+.member-portal-layout .member-welcome-copy h2 em{color:#e1c78f;font-style:normal}
+.member-portal-layout .member-welcome-copy>p:not(.member-eyebrow){max-width:430px;font-size:12px;line-height:1.9;color:#e8ece5;margin:18px 0 22px}
+.member-portal-layout .member-hero-action{display:inline-flex;align-items:center;gap:22px;border:1px solid #e3d0a0;background:#ddc58f;color:#293b30;border-radius:4px;padding:13px 17px;font:800 10px var(--sans);cursor:pointer;transition:transform .2s,background .2s}
+.member-portal-layout .member-hero-action:hover{transform:translateY(-2px);background:#ead8aa}
+.member-portal-layout .welcome-scripture{max-width:270px;padding:19px 20px;border:1px solid #ffffff30;border-left:2px solid #d8bd83;border-radius:0 9px 9px 0;background:#ffffff12;backdrop-filter:blur(10px);font-size:14px}
+.member-home-section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:0 0 17px}
+.member-home-section-head .member-eyebrow{margin-bottom:5px}
+.member-home-section-head h2{font:500 clamp(25px,2.6vw,32px)/1.2 var(--serif);color:#304438;margin:0;letter-spacing:-.4px}
+.member-home-section-head h2 em{font-style:normal;color:#a18758}
+.member-home-section-head>div>p:last-child{font-size:10px;color:#7c8379;margin:7px 0 0}
+.member-home-section-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid #e6e2d8;border-radius:30px;background:#fff;color:#7b8178;font-size:8px;font-weight:800;letter-spacing:1px;white-space:nowrap}
+.member-home-section-tag>span{width:6px;height:6px;border-radius:50%;background:#8ca17e;box-shadow:0 0 0 3px #8ca17e20}
+.member-portal-layout .member-overview-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.member-portal-layout .member-overview-card{position:relative;min-height:218px;padding:22px 19px;border:1px solid #e7e5dc;border-radius:11px;background:linear-gradient(155deg,#fff 0%,#fbfaf6 100%);text-align:left;box-shadow:0 8px 24px rgba(42,57,45,.035);transition:transform .22s,box-shadow .22s,border-color .22s}
+.member-portal-layout .member-overview-card:before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:0 3px 3px 0;background:#c6b184;opacity:0;transition:opacity .2s}
+.member-portal-layout .member-overview-card:hover{transform:translateY(-4px);border-color:#d8cba9;box-shadow:0 17px 35px rgba(42,57,45,.09)}
+.member-portal-layout .member-overview-card:hover:before{opacity:1}
+.member-portal-layout .overview-card-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:11px;background:#edf1e9;color:#647a64;font-size:21px;margin-bottom:18px}
+.member-portal-layout .overview-card-kicker{font-size:8px;letter-spacing:1.25px;color:#9b8355;font-weight:800}
+.member-portal-layout .member-overview-card strong{display:block;margin:7px 0 6px;color:#304438;font:600 19px/1.25 var(--serif)}
+.member-portal-layout .member-overview-card small{display:block;color:#798078;font-size:10px;line-height:1.7}
+.member-portal-layout .member-overview-card b{display:inline-block;margin-top:18px;color:#657964;font-size:9px;font-weight:800}
+.member-portal-layout .overview-live{background:linear-gradient(145deg,#344b3c,#25382d);border-color:#344b3c;color:#fff}
+.member-portal-layout .overview-live .overview-card-icon{background:#ffffff17;color:#e1c991}
+.member-portal-layout .overview-live .overview-card-kicker{color:#e0c992}
+.member-portal-layout .overview-live strong,.member-portal-layout .overview-live small,.member-portal-layout .overview-live b{color:#fff}
+.member-portal-layout .member-home-lower{margin-top:24px;gap:14px}
+.member-portal-layout .member-home-note{background:linear-gradient(135deg,#e9e6d9,#f2f0e8);border:1px solid #e3dece;padding:28px 30px}
+.member-portal-layout .member-home-note blockquote{font-size:22px;line-height:1.5}
+.member-portal-layout .member-home-connect{padding:26px 28px;border:1px solid #e8e5dc;background:#fff}
+.member-portal-layout .member-home-connect h2{font:500 24px/1.25 var(--serif);color:#304438;margin:5px 0 8px}
+.member-portal-layout .member-home-connect p:not(.member-eyebrow){font-size:10px;line-height:1.8;color:#798078}
+.member-portal-layout .member-home-connect a{font-size:9px;font-weight:800;color:#6c806b}
+@media(max-width:1050px){.member-portal-layout .member-overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.member-portal-layout .member-welcome{min-height:360px}}
+@media(max-width:760px){
+ .member-portal-layout .member-main{padding:22px 5% 42px}
+ .member-portal-layout .member-page-heading{padding-bottom:15px;margin-bottom:18px}
+ .member-portal-layout .member-page-heading h1{font-size:clamp(29px,8vw,36px)}
+ .member-portal-layout .member-welcome{min-height:420px;margin-bottom:25px;padding:30px 7%;background-position:58% center}
+ .member-portal-layout .member-welcome-copy h2{font-size:clamp(37px,10vw,47px)}
+ .member-portal-layout .welcome-scripture{align-self:flex-start;margin-top:25px;max-width:100%;font-size:12px}
+ .member-home-section-head{align-items:flex-start;flex-direction:column;gap:10px;margin-bottom:13px}
+ .member-home-section-head h2{font-size:27px}
+ .member-home-section-tag{font-size:7px}
+ .member-portal-layout .member-overview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .member-portal-layout .member-overview-card{min-height:190px;padding:15px 13px}
+ .member-portal-layout .overview-card-icon{width:36px;height:36px;margin-bottom:13px}
+ .member-portal-layout .member-overview-card strong{font-size:16px}
+ .member-portal-layout .member-overview-card small{font-size:9px}
+ .member-portal-layout .member-overview-card b{font-size:8px;margin-top:13px}
+ .member-portal-layout .member-home-lower{margin-top:17px}
+}
+@media(max-width:390px){.member-portal-layout .member-overview-grid{grid-template-columns:1fr}.member-portal-layout .member-overview-card{min-height:160px}.member-portal-layout .member-overview-card b{margin-top:10px}}
+@media(prefers-reduced-motion:reduce){.member-portal-layout .member-hero-action,.member-portal-layout .member-overview-card,.member-portal-layout .member-overview-card:before{transition:none!important;transform:none!important}}
