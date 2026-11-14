@@ -33,12 +33,12 @@ if(sessionError || !session){
     if(profile?.full_name){
       profileNameInput.value=profile.full_name;
       displayNameEl.textContent=profile.full_name;
-      const profileFirst=profile.full_name.trim().split(/\\s+/)[0]||"friend";
+      const profileFirst=profile.full_name.trim().split(/\s+/)[0]||"friend";
       nameEl.textContent=profileFirst+".";
       avatarEl.textContent=profileFirst[0].toUpperCase();
     }
     emailEl.textContent=user.email||"Member account";
-    avatarEl.textContent=(firstName[0]||user.email?.[0]||"M").toUpperCase();
+    avatarEl.textContent=((profile?.full_name||metadataName||user.email||"M")[0]||"M").toUpperCase();
   }
 }
 document.querySelector("#signout-button").addEventListener("click",async()=>{
