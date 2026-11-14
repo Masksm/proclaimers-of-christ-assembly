@@ -387,3 +387,61 @@ body.sermon-viewer-open{overflow:hidden}
 }
 @media(max-width:420px){.member-overview-grid{grid-template-columns:1fr}.member-overview-card{min-height:150px}.member-header-right{gap:7px}.member-portal-layout .member-site-link{display:none}.member-event-page-list .public-event-card{gap:10px}.member-event-page-list .public-event-card img{width:78px;height:78px}.member-sermon-page-list .sermon-card-thumb,.member-sermon-page-list .sermon-card-placeholder{flex-basis:85px;width:85px;height:72px}}
 @media(prefers-reduced-motion:reduce){.member-view,.member-sidebar,.member-nav-item,.member-overview-card{animation:none;transition:none}}
+
+
+/* Member portal design pass: sharpen hierarchy, interaction states and small-screen ergonomics */
+.member-portal-layout{background:radial-gradient(ellipse at 88% 5%,rgba(212,202,174,.16),transparent 32%),#f5f5f0}
+.member-portal-layout .member-header{background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom-color:#e9e5dc}
+.member-sidebar{background:linear-gradient(180deg,#fff 0%,#fcfbf8 100%)}
+.member-sidebar-account .member-avatar{box-shadow:0 0 0 4px #f5f3ed}
+.member-nav-item{font-size:12px;letter-spacing:.05px;padding:13px 14px;border-radius:8px}
+.member-nav-item:focus-visible,.member-overview-card:focus-visible,.member-hero-action:focus-visible,.member-menu-toggle:focus-visible{outline:3px solid #b49a68;outline-offset:3px}
+.member-nav-item.active{background:linear-gradient(90deg,#edf1eb,#f5f6f1);box-shadow:inset 3px 0 #b49a68,inset 0 0 0 1px #e7ebe3}
+.member-page-heading{padding-bottom:20px;border-bottom:1px solid #e8e5dc}
+.member-page-heading h1{letter-spacing:-.9px}
+.member-page-heading>div>p:last-child{max-width:610px;font-size:12px}
+.member-date-chip{box-shadow:0 4px 12px #30383205}
+.member-portal-layout .member-welcome{background-position:center 43%;border:1px solid #ffffff25}
+.member-overview-card{min-height:205px;padding:21px;border-radius:11px}
+.member-overview-card strong{font-size:17px;line-height:1.3}
+.member-overview-card small{font-size:10px;line-height:1.65}
+.member-overview-card b{font-size:10px}
+.member-home-note,.member-home-connect{border-radius:11px}
+.member-content-panel,.member-live-panel,.member-prayer-feature,.member-account-card{border-radius:12px}
+.member-panel-heading{background:linear-gradient(90deg,#fff,#fcfbf8)}
+.member-event-page-list .public-event-card{padding:18px 8px;transition:background .2s}
+.member-event-page-list .public-event-card:hover{background:#fbfaf6}
+.member-event-page-list .public-event-card img{flex:0 0 105px;width:105px;height:88px;object-fit:cover}
+.member-event-page-list .public-event-content{min-width:0}
+.member-event-page-list .public-event-content h3{margin:4px 0 6px;font-size:17px;line-height:1.3}
+.member-sermon-page-list .member-sermon-card{border-radius:9px;transition:transform .22s,box-shadow .22s,border-color .22s}
+.member-sermon-page-list .member-sermon-card:hover{transform:translateY(-2px);border-color:#d8c9a8;box-shadow:0 8px 22px #3038320a}
+.member-prayer-copy .member-prayer-link,.member-live-footer>a{transition:transform .2s,background .2s}
+.member-prayer-copy .member-prayer-link:hover,.member-live-footer>a:hover{transform:translateY(-2px);background:#405448}
+.member-profile-page-card{box-shadow:0 12px 32px rgba(48,56,50,.04)}
+.member-profile-form input{border-radius:6px;transition:border-color .2s,box-shadow .2s}
+.member-profile-form input:focus{border-color:#b49a68;box-shadow:0 0 0 3px #b49a681c;outline:0}
+.member-profile-form button{border-radius:5px;transition:transform .2s,background .2s}
+.member-profile-form button:hover:not(:disabled){transform:translateY(-1px);background:#405448}
+.member-prayer-dialog{border-radius:12px}
+.member-prayer-form input,.member-prayer-form textarea{border-radius:6px}
+.member-footer{font-size:11px}
+@media(max-width:1050px){.member-portal-layout .member-main{padding-inline:clamp(18px,3vw,32px)}.member-overview-card{padding:17px}}
+@media(max-width:760px){
+ .member-portal-layout .member-main{padding:24px 5% 45px}
+ .member-page-heading{padding-bottom:16px;margin-bottom:20px}
+ .member-page-heading h1{font-size:clamp(30px,8vw,36px)}
+ .member-overview-grid{gap:10px}
+ .member-overview-card{min-height:168px;padding:15px;border-radius:9px}
+ .member-overview-card strong{font-size:14px}
+ .member-overview-card small{font-size:9px}
+ .member-event-page-list{padding:9px 14px}
+ .member-event-page-list .public-event-card{padding:14px 2px;gap:12px}
+ .member-event-page-list .public-event-card img{flex-basis:82px;width:82px;height:82px;border-radius:6px}
+ .member-event-page-list .public-event-content h3{font-size:15px}
+ .member-event-page-list .public-event-content p{font-size:9px}
+ .member-sermon-page-list{padding:12px}
+ .member-live-topline{padding:12px 14px;letter-spacing:.7px}
+ .member-live-footer strong{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.member-nav-item,.member-overview-card,.member-sermon-page-list .member-sermon-card,.member-prayer-copy .member-prayer-link,.member-live-footer>a,.member-profile-form button{transition:none!important;transform:none!important}}
