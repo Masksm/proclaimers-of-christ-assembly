@@ -79,11 +79,18 @@ async function loadReports(){
  renderBars("#sa-action-activity",report.action_counts||[],"action","count");
  const days=report.daily_activity||[],max=Math.max(1,...days.map(x=>Number(x.count||0)));
  $("#sa-daily-activity").innerHTML=days.length?days.map(x=>'<div class="sa-day-bar"><div class="sa-day-column"><i style="height:'+Math.max(4,Number(x.count||0)/max*100)+'%"></i></div><b>'+esc(x.count)+'</b><small>'+esc(x.day.slice(5))+'</small></div>').join(""):'<p class="sa-empty">No activity recorded in this period.</p>';
- renderSecurityAlerts(report.security_alerts||[]);
+ refreshSecurityAlerts();
 }
 function renderSecurityAlerts(alerts){
  const target=$("#sa-security-alerts");
  target.innerHTML=alerts.length?alerts.map(a=>'<article class="sa-alert '+(a.severity==="high"?"high":"medium")+'"><span class="sa-alert-mark">'+(a.severity==="high"?"!":"•")+'</span><div><b>'+esc(a.title)+'</b><p>'+esc(a.detail)+(a.link?' <a href="'+esc(a.link)+'" target="_blank" rel="noopener">Remediation ↗</a>':"")+'</p></div><small>'+esc(a.severity.toUpperCase())+' · '+esc(a.count)+'</small></article>').join(""):'<div class="sa-no-alerts"><span>✓</span><div><b>No activity-based security alerts</b><p>No repeated authorization failures or deletion events were detected in this date range.</p></div></div>';
+}
+function refreshSecurityAlerts(){
+ const alerts=[...(report?.security_alerts||[])];
+ const exposed=health?.anonymous_security_definer_functions||[];
+ if(exposed.length)alerts.push({severity:"high",title:"Anonymous privileged database functions",count:exposed.length,detail:exposed.map(x=>x.function).join(", ")});
+ alerts.push({severity:"medium",title:"Supabase leaked-password protection is disabled",count:1,detail:"Last Supabase security-advisor check: compromised-password screening is off. Enable it in Authentication → Settings → Password security.",link:"https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection"});
+ renderSecurityAlerts(alerts);
 }
 async function loadHealth(){
  $("#sa-health-grid").innerHTML='<article class="sa-health-item"><span class="sa-health-dot pending"></span><div><b>Running checks</b><small>Connecting to database and configuration…</small></div></article>';
@@ -100,10 +107,7 @@ async function loadHealth(){
  ];
  $("#sa-health-grid").innerHTML=checks.map(c=>'<article class="sa-health-item"><span class="sa-health-dot '+(c[1]?"pass":"fail")+'"></span><div><b>'+esc(c[0])+'</b><small>'+esc(c[2])+'</small></div><strong class="sa-check-status '+(c[1]?"pass":"fail")+'">'+(c[1]?"PASS":"CHECK")+'</strong></article>').join("");
  const buckets=health.storage_buckets||[];
- const exposed=health.anonymous_security_definer_functions||[];
- const platformAlerts=[{severity:"medium",title:"Supabase leaked-password protection is disabled",count:1,detail:"Last Supabase security-advisor check: compromised-password screening is off. Enable it in Authentication → Settings → Password security.",link:"https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection"}];
- const exposureAlerts=exposed.length?[{severity:"high",title:"Anonymous privileged database functions",count:exposed.length,detail:exposed.map(x=>x.function).join(", ")}]:[];
- renderSecurityAlerts([...(report?.security_alerts||[]),...exposureAlerts,...platformAlerts]);
+ refreshSecurityAlerts();
  const config=[
   ["Supabase project",new URL(PROJECT_URL).hostname=== "hlnkyczwdgvnrvuhdypk.supabase.co","hlnkyczwdgvnrvuhdypk"],
   ["Browser API key",PUBLIC_KEY.startsWith("sb_publishable_"),"Publishable key configured; no service key used in browser"],
