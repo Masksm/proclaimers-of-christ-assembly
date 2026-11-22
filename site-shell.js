@@ -28,5 +28,14 @@
   document.querySelectorAll(".site-nav-group").forEach(group=>group.addEventListener("toggle",()=>{if(group.open)document.querySelectorAll(".site-nav-group").forEach(other=>{if(other!==group)other.open=false;});}));
   const path=location.pathname.split("/").pop()||"index.html";
   document.querySelectorAll(".site-navigation a").forEach(a=>{if(a.getAttribute("href")===path)a.classList.add("is-current");});
+  document.querySelectorAll(".site-nav-group").forEach(group=>{
+    if(group.querySelector('a[href="'+path+'"]'))group.classList.add("has-current");
+  });
+  document.addEventListener("keydown",event=>{
+    if(event.key==="Escape"){
+      document.querySelectorAll(".site-nav-group[open]").forEach(group=>group.open=false);
+      if(nav?.classList.contains("is-open")){nav.classList.remove("is-open");toggle?.setAttribute("aria-expanded","false");}
+    }
+  });
   document.addEventListener("click",e=>{if(!e.target.closest(".site-navigation"))document.querySelectorAll(".site-nav-group[open]").forEach(g=>g.open=false);});
 })();
