@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#17251d">
+<title>Developer Console | Proclaimers of Christ Assembly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="design-system.css"><link rel="stylesheet" href="super-admin.css">
+</head>
+<body class="sa-page">
+<aside class="sa-sidebar">
+<a class="sa-brand" href="index.html"><span>✝</span><b>PROCLAIMERS<small>OF CHRIST ASSEMBLY</small></b></a>
+<p class="sa-label">DEVELOPER WORKSPACE</p>
+<nav><a class="active" href="#overview">◈ Overview</a><a href="#people">♙ People & roles</a><a href="#audit">▤ Audit trail</a><a href="#system">⌁ System monitor</a></nav>
+<div class="sa-side-bottom"><a href="admin.html">← Admin workspace</a><a href="index.html">View public website ↗</a><button id="sa-signout">Sign out</button></div>
+</aside>
+<main class="sa-main">
+<header class="sa-topbar"><div><span>DEVELOPER CONSOLE</span><h1>System control</h1></div><div class="sa-identity"><i></i><span id="sa-email">Verifying account…</span><b>SUPER ADMIN</b></div></header>
+<section class="sa-hero" id="overview"><div><span class="sa-eyebrow">ROOT ACCESS · RESTRICTED WORKSPACE</span><h2>Oversight without<br><em>guesswork.</em></h2><p>Manage account permissions, review a tamper-resistant activity trail and monitor application errors.</p></div><div class="sa-hero-mark">◇</div></section>
+<section class="sa-metrics">
+<article><span>REGISTERED ACCOUNTS</span><strong id="sa-user-count">—</strong><small>All authenticated accounts</small></article>
+<article><span>ADMINISTRATORS</span><strong id="sa-admin-count">—</strong><small>Admin and super admin roles</small></article>
+<article><span>RECENT ACTIVITIES</span><strong id="sa-audit-count">—</strong><small>Latest audit records loaded</small></article>
+<article><span>APPLICATION ERRORS</span><strong id="sa-error-count">—</strong><small>Browser errors in loaded records</small></article>
+</section>
+<section class="sa-panel" id="people">
+<div class="sa-panel-head"><div><span class="sa-eyebrow">ACCESS CONTROL</span><h2>People & permissions</h2><p>Promote members to admin or revoke admin access. Super admin access cannot be changed here.</p></div><button id="sa-refresh-users" class="sa-button secondary">Refresh list</button></div>
+<div class="sa-toolbar"><input id="sa-user-search" type="search" placeholder="Search name or email…" aria-label="Search accounts"><select id="sa-role-filter" aria-label="Filter by role"><option value="all">All roles</option><option value="member">Members</option><option value="admin">Administrators</option><option value="super_admin">Super administrators</option></select></div>
+<div class="sa-table-wrap"><table><thead><tr><th>ACCOUNT</th><th>ROLE</th><th>LAST SIGN IN</th><th>PERMISSION ACTION</th></tr></thead><tbody id="sa-user-rows"><tr><td colspan="4">Loading accounts…</td></tr></tbody></table></div>
+<p class="sa-feedback" id="sa-user-feedback" role="status" aria-live="polite"></p>
+</section>
+<section class="sa-panel" id="audit">
+<div class="sa-panel-head"><div><span class="sa-eyebrow">ACCOUNTABILITY</span><h2>Audit trail</h2><p>Database changes and authenticated browser errors. Sensitive prayer content and credentials are excluded.</p></div><button id="sa-refresh-audit" class="sa-button secondary">Refresh activity</button></div>
+<div class="sa-toolbar"><input id="sa-audit-search" type="search" placeholder="Search actions, users or records…" aria-label="Search audit records"><select id="sa-audit-filter" aria-label="Filter activity"><option value="all">All activity</option><option value="client_error">Application errors</option><option value="role_change">Role changes</option><option value="insert">Created records</option><option value="update">Updated records</option><option value="delete">Deleted records</option></select></div>
+<div class="sa-table-wrap"><table><thead><tr><th>TIME</th><th>ACTOR</th><th>ACTIVITY</th><th>RECORD</th><th>DETAILS</th></tr></thead><tbody id="sa-audit-rows"><tr><td colspan="5">Loading audit trail…</td></tr></tbody></table></div>
+<p class="sa-feedback" id="sa-audit-feedback" role="status" aria-live="polite"></p>
+</section>
+<section class="sa-panel sa-system" id="system"><div><span class="sa-eyebrow">PLATFORM HEALTH</span><h2>System monitor</h2><p><i class="sa-online-dot"></i> Database connection and role-checked console are responding.</p><small>Application error monitoring starts when an authenticated browser session reports an uncaught error. Supabase infrastructure-level logs remain available in the Supabase dashboard.</small></div><div class="sa-system-status"><b>CONNECTED</b><span>Live database session</span></div></section>
+<footer>Proclaimers of Christ Assembly · Restricted developer workspace</footer>
+</main>
+<script type="module" src="super-admin.js"></script>
+<script type="module" src="error-monitor.js"></script>
+</body></html>
