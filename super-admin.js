@@ -100,6 +100,8 @@ async function loadHealth(){
  ];
  $("#sa-health-grid").innerHTML=checks.map(c=>'<article class="sa-health-item"><span class="sa-health-dot '+(c[1]?"pass":"fail")+'"></span><div><b>'+esc(c[0])+'</b><small>'+esc(c[2])+'</small></div><strong class="sa-check-status '+(c[1]?"pass":"fail")+'">'+(c[1]?"PASS":"CHECK")+'</strong></article>').join("");
  const buckets=health.storage_buckets||[];
+ const exposed=health.anonymous_security_definer_functions||[];
+ if(exposed.length){renderSecurityAlerts([...(report?.security_alerts||[]),{severity:"high",title:"Anonymous privileged database functions",count:exposed.length,detail:exposed.map(x=>x.function).join(", ")}]);}
  const config=[
   ["Supabase project",new URL(PROJECT_URL).hostname=== "hlnkyczwdgvnrvuhdypk.supabase.co","hlnkyczwdgvnrvuhdypk"],
   ["Browser API key",PUBLIC_KEY.startsWith("sb_publishable_"),"Publishable key configured; no service key used in browser"],
