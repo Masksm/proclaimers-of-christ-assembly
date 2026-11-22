@@ -1,0 +1,46 @@
+/* Church administration workspace refinements */
+body.admin-workspace{background:#f4f5ef}
+.admin-workspace .sidebar{background:linear-gradient(175deg,#263c30,#344b3a 60%,#263a2f);width:252px;padding:25px 15px 18px}
+.admin-workspace .main{margin-left:252px;max-width:none;padding:0 clamp(22px,3.2vw,52px)}
+.admin-workspace .brand{padding-bottom:28px}
+.admin-workspace .workspace-label{margin:0 10px 7px}
+.admin-workspace .primary-nav{gap:4px}
+.admin-workspace .nav-link{min-height:42px;padding:10px 12px;border-radius:5px;font-size:10px}
+.admin-workspace .topbar{height:75px;margin-bottom:22px}
+.admin-workspace .breadcrumb b{font-size:12px}
+.admin-workspace .welcome-panel{min-height:250px;padding:34px 38px;border-radius:8px;box-shadow:0 12px 30px #26382d0b}
+.admin-workspace .welcome-panel h1{font-size:clamp(34px,3.4vw,46px)}
+.admin-workspace .welcome-panel p{font-size:10px;max-width:470px}
+.admin-workspace .overview-section,.admin-workspace .management-section{margin-top:30px}
+.admin-workspace .section-heading{margin-bottom:14px}
+.admin-workspace .section-heading h2{font-size:23px}
+.admin-workspace .stats-grid{gap:10px}
+.admin-workspace .stat-card{min-height:135px;padding:15px;border-radius:7px;box-shadow:none}
+.admin-workspace .stat-card strong{font-size:27px}
+.admin-workspace .management-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.admin-workspace .management-card{min-height:172px;padding:17px 18px 15px;border-radius:7px;box-shadow:none;display:flex;flex-direction:column;align-items:flex-start}
+.admin-workspace .management-card.featured{padding-top:15px}
+.admin-workspace .management-card .card-icon{width:36px;height:36px;margin-bottom:10px;border-radius:7px}
+.admin-workspace .management-card .module-status{top:23px;right:15px;font-size:7px}
+.admin-workspace .management-card h3{font-size:14px;margin:0 0 6px}
+.admin-workspace .management-card p{font-size:9px;min-height:0;max-width:500px;line-height:1.7}
+.admin-workspace .management-card .card-foot{width:100%;margin-top:auto;padding-top:10px}
+.admin-workspace .management-card[role=button]{cursor:pointer}
+.admin-workspace .management-card[role=button]:focus-visible{outline:3px solid #b59a65;outline-offset:3px}
+.admin-quick-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 0;padding:15px 17px;background:#fff;border:1px solid #e7e8df;border-radius:7px}
+.admin-quick-actions>div{margin-right:auto;min-width:160px}
+.admin-quick-actions .eyebrow{font-size:7px}
+.admin-quick-actions h3{font:600 16px "Playfair Display",serif;color:#35483b;margin:4px 0 0}
+.admin-quick-action{min-height:35px;padding:0 12px;display:inline-flex;align-items:center;gap:8px;border:1px solid #e1e5dc;background:#f9faf6;color:#526a54;border-radius:4px;font:700 9px "DM Sans",sans-serif;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.admin-quick-action:hover{background:#edf1e9;border-color:#cbd6c7;transform:translateY(-1px)}
+.admin-quick-action.primary{background:#344b3a;border-color:#344b3a;color:#fff}
+.admin-quick-action:disabled{opacity:.5;cursor:not-allowed}
+.admin-workspace .bottom-grid{margin-top:27px}
+.admin-workspace .next-step-card,.admin-workspace .security-card{border-radius:7px;box-shadow:none}
+.admin-workspace .events-modal-panel{max-width:1160px;width:min(1160px,calc(100vw - 40px));border-radius:9px}
+.admin-workspace .events-manager-grid{gap:14px}
+.admin-workspace .event-form,.admin-workspace .event-list-panel{border-radius:7px}
+.admin-workspace footer{margin-top:26px}
+@media(max-width:1000px){.admin-workspace .main{padding:0 22px}.admin-workspace .topbar-right{gap:12px}.admin-workspace .secure-label{display:none}}
+@media(max-width:760px){.admin-workspace .sidebar{width:270px}.admin-workspace .main{margin-left:0;padding:0 15px}.admin-workspace .welcome-panel{padding:26px 22px;min-height:265px}.admin-workspace .welcome-panel h1{font-size:34px}.admin-workspace .management-grid{grid-template-columns:1fr}.admin-workspace .management-card{min-height:155px}.admin-quick-actions{align-items:stretch}.admin-quick-actions>div{flex-basis:100%}.admin-quick-action{flex:1;justify-content:center;min-width:125px}.admin-workspace .bottom-grid{grid-template-columns:1fr}.admin-workspace .events-modal-panel{width:calc(100vw - 16px);max-height:94vh}.admin-workspace .events-manager-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.admin-quick-action{transition:none}.admin-quick-action:hover{transform:none}}
