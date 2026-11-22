@@ -11,33 +11,59 @@
 <aside class="sa-sidebar">
 <a class="sa-brand" href="index.html"><span>✝</span><b>PROCLAIMERS<small>OF CHRIST ASSEMBLY</small></b></a>
 <p class="sa-label">DEVELOPER WORKSPACE</p>
-<nav><a class="active" href="#overview">◈ Overview</a><a href="#people">♙ People & roles</a><a href="#audit">▤ Audit trail</a><a href="#system">⌁ System monitor</a></nav>
-<div class="sa-side-bottom"><a href="admin.html">← Admin workspace</a><a href="index.html">View public website ↗</a><button id="sa-signout">Sign out</button></div>
+<nav aria-label="Developer navigation"><a class="active" href="#overview">◈ Overview</a><a href="#people">♙ People & roles</a><a href="#audit">▤ Audit trail</a><a href="#reports">▥ Reports</a><a href="#security">⚑ Security</a><a href="#system">⌁ System health</a></nav>
+<div class="sa-side-bottom"><a href="admin.html">← Admin workspace</a><a href="index.html">View public website ↗</a><button id="sa-signout" type="button">Sign out</button></div>
 </aside>
 <main class="sa-main">
 <header class="sa-topbar"><div><span>DEVELOPER CONSOLE</span><h1>System control</h1></div><div class="sa-identity"><i></i><span id="sa-email">Verifying account…</span><b>SUPER ADMIN</b></div></header>
-<section class="sa-hero" id="overview"><div><span class="sa-eyebrow">ROOT ACCESS · RESTRICTED WORKSPACE</span><h2>Oversight without<br><em>guesswork.</em></h2><p>Manage account permissions, review a tamper-resistant activity trail and monitor application errors.</p></div><div class="sa-hero-mark">◇</div></section>
+<section class="sa-hero" id="overview"><div><span class="sa-eyebrow">ROOT ACCESS · RESTRICTED WORKSPACE</span><h2>Oversight without<br><em>guesswork.</em></h2><p>Manage account permissions, investigate failed requests, review administrator activity and monitor platform configuration.</p></div><div class="sa-hero-mark">◇</div></section>
 <section class="sa-metrics">
 <article><span>REGISTERED ACCOUNTS</span><strong id="sa-user-count">—</strong><small>All authenticated accounts</small></article>
 <article><span>ADMINISTRATORS</span><strong id="sa-admin-count">—</strong><small>Admin and super admin roles</small></article>
-<article><span>RECENT ACTIVITIES</span><strong id="sa-audit-count">—</strong><small>Latest audit records loaded</small></article>
-<article><span>APPLICATION ERRORS</span><strong id="sa-error-count">—</strong><small>Browser errors in loaded records</small></article>
+<article><span>RECORDED ACTIVITIES</span><strong id="sa-audit-count">—</strong><small>Within the selected date range</small></article>
+<article><span>APPLICATION / API ERRORS</span><strong id="sa-error-count">—</strong><small>Within the selected date range</small></article>
 </section>
 <section class="sa-panel" id="people">
-<div class="sa-panel-head"><div><span class="sa-eyebrow">ACCESS CONTROL</span><h2>People & permissions</h2><p>Promote members to admin or revoke admin access. Super admin access cannot be changed here.</p></div><button id="sa-refresh-users" class="sa-button secondary">Refresh list</button></div>
+<div class="sa-panel-head"><div><span class="sa-eyebrow">ACCESS CONTROL</span><h2>People & permissions</h2><p>Promote members to admin or revoke administrator access. Super Admin accounts are protected from this screen.</p></div><button id="sa-refresh-users" class="sa-button secondary" type="button">Refresh list</button></div>
 <div class="sa-toolbar"><input id="sa-user-search" type="search" placeholder="Search name or email…" aria-label="Search accounts"><select id="sa-role-filter" aria-label="Filter by role"><option value="all">All roles</option><option value="member">Members</option><option value="admin">Administrators</option><option value="super_admin">Super administrators</option></select></div>
 <div class="sa-table-wrap"><table><thead><tr><th>ACCOUNT</th><th>ROLE</th><th>LAST SIGN IN</th><th>PERMISSION ACTION</th></tr></thead><tbody id="sa-user-rows"><tr><td colspan="4">Loading accounts…</td></tr></tbody></table></div>
 <p class="sa-feedback" id="sa-user-feedback" role="status" aria-live="polite"></p>
 </section>
 <section class="sa-panel" id="audit">
-<div class="sa-panel-head"><div><span class="sa-eyebrow">ACCOUNTABILITY</span><h2>Audit trail</h2><p>Database changes and authenticated browser errors. Sensitive prayer content and credentials are excluded.</p></div><button id="sa-refresh-audit" class="sa-button secondary">Refresh activity</button></div>
-<div class="sa-toolbar"><input id="sa-audit-search" type="search" placeholder="Search actions, users or records…" aria-label="Search audit records"><select id="sa-audit-filter" aria-label="Filter activity"><option value="all">All activity</option><option value="client_error">Application errors</option><option value="role_change">Role changes</option><option value="insert">Created records</option><option value="update">Updated records</option><option value="delete">Deleted records</option></select></div>
-<div class="sa-table-wrap"><table><thead><tr><th>TIME</th><th>ACTOR</th><th>ACTIVITY</th><th>RECORD</th><th>DETAILS</th></tr></thead><tbody id="sa-audit-rows"><tr><td colspan="5">Loading audit trail…</td></tr></tbody></table></div>
+<div class="sa-panel-head"><div><span class="sa-eyebrow">ACCOUNTABILITY</span><h2>Audit trail</h2><p>Search and export database changes, role activity, browser errors and failed Supabase requests.</p></div><div class="sa-head-actions"><button id="sa-reset-audit" class="sa-button secondary" type="button">Reset filters</button><button id="sa-export-audit" class="sa-button primary" type="button">Export CSV ↓</button></div></div>
+<div class="sa-filter-grid">
+<label>From date<input id="sa-audit-from" type="date"></label>
+<label>To date<input id="sa-audit-to" type="date"></label>
+<label>Activity type<select id="sa-audit-filter"><option value="">All activity</option><option value="insert">Created records</option><option value="update">Updated records</option><option value="delete">Deleted records</option><option value="role_change">Role changes</option><option value="session_started">Sessions started</option><option value="session_ended">Sessions ended</option><option value="client_error">Browser errors</option><option value="api_error">API failures</option></select></label>
+<label>Area<select id="sa-entity-filter"><option value="">All areas</option><option value="church_announcements">Announcements</option><option value="church_events">Events</option><option value="church_ministries">Ministries</option><option value="church_prayer_requests">Prayer requests</option><option value="church_sermons">Sermons</option><option value="profiles">Profiles</option><option value="user_roles">User roles</option><option value="browser">Browser</option><option value="supabase_api">Supabase API</option><option value="auth.sessions">Authentication</option></select></label>
+<label class="sa-search-filter">Search records, actor or details<input id="sa-audit-search" type="search" placeholder="Name, email, endpoint, record ID…"></label>
+</div>
+<div class="sa-table-wrap"><table><thead><tr><th>TIME</th><th>ACTOR</th><th>ACTIVITY</th><th>RECORD / AREA</th><th>DETAILS</th></tr></thead><tbody id="sa-audit-rows"><tr><td colspan="5">Loading audit trail…</td></tr></tbody></table></div>
+<div class="sa-table-footer"><span id="sa-audit-page-info">Loading records…</span><div><button id="sa-audit-prev" class="sa-button secondary" type="button" disabled>← Previous</button><button id="sa-audit-next" class="sa-button secondary" type="button" disabled>Next →</button></div></div>
 <p class="sa-feedback" id="sa-audit-feedback" role="status" aria-live="polite"></p>
 </section>
-<section class="sa-panel sa-system" id="system"><div><span class="sa-eyebrow">PLATFORM HEALTH</span><h2>System monitor</h2><p><i class="sa-online-dot"></i> Database connection and role-checked console are responding.</p><small>Application error monitoring starts when an authenticated browser session reports an uncaught error. Supabase infrastructure-level logs remain available in the Supabase dashboard.</small></div><div class="sa-system-status"><b>CONNECTED</b><span>Live database session</span></div></section>
+<section class="sa-panel" id="reports">
+<div class="sa-panel-head"><div><span class="sa-eyebrow">ADMINISTRATOR OVERSIGHT</span><h2>Activity reports</h2><p>Summaries of administrator work, database changes and error volume for the audit date range.</p></div><button id="sa-refresh-reports" class="sa-button secondary" type="button">Refresh reports</button></div>
+<div class="sa-report-metrics"><article><span>TOTAL ACTIONS</span><strong id="sa-report-total">—</strong></article><article><span>FAILED ACTIONS</span><strong id="sa-report-failed">—</strong></article><article><span>ERROR EVENTS</span><strong id="sa-report-errors">—</strong></article></div>
+<div class="sa-report-grid">
+<div class="sa-report-block"><h3>Administrator activity</h3><div id="sa-admin-activity" class="sa-bars"><p class="sa-empty">Loading report…</p></div></div>
+<div class="sa-report-block"><h3>Activity by type</h3><div id="sa-action-activity" class="sa-bars"><p class="sa-empty">Loading report…</p></div></div>
+<div class="sa-report-block sa-report-wide"><h3>Daily activity</h3><div id="sa-daily-activity" class="sa-daily-bars"><p class="sa-empty">Loading report…</p></div></div>
+</div>
+</section>
+<section class="sa-panel" id="security">
+<div class="sa-panel-head"><div><span class="sa-eyebrow">RISK MONITORING</span><h2>Security alerts</h2><p>Alerts are generated from recorded API failures, authorization responses and destructive content actions.</p></div><button id="sa-refresh-security" class="sa-button secondary" type="button">Recheck alerts</button></div>
+<div id="sa-security-alerts" class="sa-alert-list"><p class="sa-empty">Loading security checks…</p></div>
+</section>
+<section class="sa-panel" id="system">
+<div class="sa-panel-head"><div><span class="sa-eyebrow">PLATFORM HEALTH & CONFIGURATION</span><h2>System monitor</h2><p>Live database, authentication schema, storage metadata, required tables and row-level security checks.</p></div><button id="sa-refresh-health" class="sa-button secondary" type="button">Run health checks</button></div>
+<div class="sa-health-grid" id="sa-health-grid"><article class="sa-health-item"><span class="sa-health-dot pending"></span><div><b>Database connection</b><small>Checking database…</small></div></article></div>
+<div class="sa-config-panel"><div><span class="sa-eyebrow">RUNTIME CONFIGURATION</span><h3>Application configuration</h3></div><div id="sa-config-checks" class="sa-config-checks"></div></div>
+<div class="sa-system-foot"><span id="sa-health-checked">Health checks have not run yet.</span><span id="sa-health-feedback" role="status" aria-live="polite"></span></div>
+</section>
 <footer>Proclaimers of Christ Assembly · Restricted developer workspace</footer>
 </main>
+<script src="api-monitor.js"></script>
 <script type="module" src="super-admin.js"></script>
 <script type="module" src="error-monitor.js"></script>
 </body></html>
