@@ -264,3 +264,5 @@ html{scroll-padding-top:105px}
  .admin-reveal{opacity:1;transform:none;transition:none}
  .stat-card,.management-card,.next-step-card,.security-card,.nav-link,.events-modal-panel{transition:none;animation:none}
 }
+
+#super-admin-link[hidden]{display:none!important}
