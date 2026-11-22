@@ -10,8 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="admin.css">
   <link rel="stylesheet" href="design-system.css">
+  <link rel="stylesheet" href="admin-refresh.css">
 </head>
-<body>
+<body class="admin-workspace">
   <aside class="sidebar" id="sidebar">
     <a class="brand" href="index.html" aria-label="Proclaimers of Christ Assembly home">
       <span class="brand-mark">✝</span>
@@ -52,7 +53,7 @@
     <section class="welcome-panel">
       <div class="welcome-copy">
         <span class="eyebrow">PROCLAIMERS OF CHRIST ASSEMBLY</span>
-        <h1>Good day.<br><em>Your church, in good hands.</em></h1>
+        <h1>Good day.<br><em>Manage the work.<br><em>Serve the people.</em></em></h1>
         <p>Welcome to your administration workspace. Keep your church website current, organised and connected with your community.</p>
         <a class="welcome-action" href="#website">Explore management tools <span>→</span></a>
       </div>
@@ -73,9 +74,18 @@
       </div>
     </section>
 
+    <section class="admin-quick-actions" aria-label="Quick administration actions">
+      <div><span class="eyebrow">QUICK ACTIONS</span><h3>Move work forward</h3></div>
+      <button type="button" class="admin-quick-action primary" data-admin-launch="events-card">＋ Create event</button>
+      <button type="button" class="admin-quick-action" data-admin-launch="announcements-card">＋ Announcement</button>
+      <button type="button" class="admin-quick-action" data-admin-launch="sermons">＋ Add sermon</button>
+      <button type="button" class="admin-quick-action" data-admin-launch="ministries-card">＋ Add ministry</button>
+      <button type="button" class="admin-quick-action" data-admin-launch="prayer-card">♡ Prayer inbox</button>
+    </section>
+
     <section class="management-section" id="website">
       <div class="section-heading">
-        <div><span class="eyebrow">MANAGE YOUR CHURCH</span><h2>Management centre</h2><p>Choose an area to manage. Tools will become available as each module is built.</p></div>
+        <div><span class="eyebrow">MANAGE YOUR CHURCH</span><h2>Management centre</h2><p>Manage church communications, worship resources, ministry information and member care from one workspace.</p></div>
       </div>
       <div class="management-grid">
         <article class="management-card featured events-launcher" id="events-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="events-modal">
@@ -95,7 +105,7 @@
           <span class="card-foot">Ministry directory <b>Open manager</b></span>
         </article>
         <article class="management-card" id="gallery">
-          <div class="card-icon">▧</div><span class="module-status">PLANNED</span>
+          <div class="card-icon">▧</div><span class="module-status">NOT ENABLED</span>
           <h3>Photo gallery</h3><p>Upload and organise photographs from services, programmes and church activities.</p>
           <span class="card-foot">Image library <b>Not connected</b></span>
         </article>
