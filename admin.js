@@ -22,6 +22,14 @@ async function loadAdminOverview(){
 async function signOut(){await supabase.auth.signOut();location.replace("login.html");}
 document.querySelector("#signout").addEventListener("click",signOut);document.querySelector("#side-signout").addEventListener("click",signOut);
 if(document.querySelector("#admin-upcoming-events"))loadAdminOverview();
+const managerObserver=new MutationObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.type==="attributes"&&entry.attributeName==="hidden"&&!entry.target.hidden){
+   entry.target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+  }
+ });
+});
+document.querySelectorAll(".events-modal").forEach(panel=>managerObserver.observe(panel,{attributes:true,attributeFilter:["hidden"]}));
 document.querySelectorAll("[data-admin-launch]").forEach(button=>{
  button.addEventListener("click",()=>{
   const target=document.getElementById(button.dataset.adminLaunch);
