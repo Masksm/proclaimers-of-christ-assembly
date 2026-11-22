@@ -22,6 +22,12 @@ async function loadAdminOverview(){
 async function signOut(){await supabase.auth.signOut();location.replace("login.html");}
 document.querySelector("#signout").addEventListener("click",signOut);document.querySelector("#side-signout").addEventListener("click",signOut);
 if(document.querySelector("#admin-upcoming-events"))loadAdminOverview();
+document.querySelectorAll("[data-admin-launch]").forEach(button=>{
+ button.addEventListener("click",()=>{
+  const target=document.getElementById(button.dataset.adminLaunch);
+  if(target){target.click();target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});}
+ });
+});
 const sidebar=document.querySelector("#sidebar"),menu=document.querySelector("#menu");menu.addEventListener("click",()=>sidebar.classList.toggle("open"));sidebar.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>sidebar.classList.remove("open")));
 
 /* Dashboard interaction layer */
