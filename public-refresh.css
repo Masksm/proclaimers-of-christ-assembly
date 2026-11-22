@@ -1,0 +1,84 @@
+/* Shared editorial refresh for public church pages */
+.public-refresh{background:#f7f6f1;color:#26382d;overflow-x:clip}
+.pr-hero{position:relative;min-height:clamp(440px,62vw,690px);display:flex;align-items:flex-end;isolation:isolate;background:#24392e;overflow:hidden}
+.pr-hero:before{content:"";position:absolute;inset:0;z-index:-2;background-image:var(--pr-image);background-size:cover;background-position:center 48%;transform:scale(1.015)}
+.pr-hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(18,32,24,.87),rgba(18,32,24,.52) 48%,rgba(18,32,24,.12)),linear-gradient(0deg,rgba(14,25,19,.38),transparent 50%)}
+.pr-hero-inner{width:min(1180px,90%);margin:0 auto;padding:100px 0 75px;color:#fff}
+.pr-breadcrumb{font-size:10px;letter-spacing:1.1px;color:#ffffffa8;margin-bottom:34px}
+.pr-breadcrumb a{color:#e5d2a5;text-decoration:none}
+.pr-kicker{display:flex;align-items:center;gap:10px;font-size:9px;letter-spacing:2.1px;font-weight:800;color:#bda978;margin:0 0 18px}
+.pr-kicker:before{content:"";width:24px;height:1px;background:#bda978}
+.pr-hero h1{max-width:850px;font:500 clamp(46px,7.4vw,88px)/.99 "Playfair Display",serif;letter-spacing:-2px;margin:0;color:#fff}
+.pr-hero h1 em{font-style:normal;color:#ddc995}
+.pr-hero-copy{max-width:570px;color:#ffffffd1;font-size:14px;line-height:1.9;margin:24px 0 0}
+.pr-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:29px}
+.pr-btn{min-height:45px;padding:0 19px;display:inline-flex;align-items:center;justify-content:center;gap:18px;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.5px;border:1px solid transparent;transition:transform .2s,background .2s}
+.pr-btn:hover{transform:translateY(-2px)}
+.pr-btn-gold{background:#d9c18c;color:#26382d}
+.pr-btn-ghost{border-color:#ffffff75;color:#fff;background:#ffffff0b}
+.pr-hero-note{display:flex;align-items:center;gap:12px;margin-top:55px;color:#ffffff9e;font-size:8px;letter-spacing:1.7px;font-weight:700}
+.pr-hero-note:after{content:"";height:1px;width:65px;background:#ffffff55}
+.pr-section{padding:clamp(62px,8vw,104px) 0}
+.pr-wrap{width:min(1160px,90%);margin:0 auto}
+.pr-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:32px}
+.pr-section-head h2,.pr-copy h2,.pr-feature-copy h2{font:500 clamp(32px,4.2vw,52px)/1.08 "Playfair Display",serif;letter-spacing:-.8px;color:#2d4234;margin:0}
+.pr-section-head h2 em,.pr-copy h2 em,.pr-feature-copy h2 em{color:#a48b5c;font-style:normal}
+.pr-section-head>p{max-width:390px;color:#748075;font-size:12px;line-height:1.9;margin:0}
+.pr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pr-card{background:#fff;border:1px solid #e8e6dc;min-width:0;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.pr-card:hover{transform:translateY(-4px);border-color:#d9cfb5;box-shadow:0 16px 34px #26382d12}
+.pr-card img{display:block;width:100%;height:210px;object-fit:cover}
+.pr-card-body{padding:22px}
+.pr-index{font-size:9px;letter-spacing:1.5px;color:#a48b5c;font-weight:800}
+.pr-card h3{font:600 22px/1.2 "Playfair Display",serif;color:#304438;margin:12px 0 9px}
+.pr-card p{font-size:11px;line-height:1.85;color:#778078;margin:0}
+.pr-text-link{display:inline-flex;align-items:center;gap:12px;margin-top:17px;color:#536c55;font-size:10px;font-weight:800;text-decoration:none}
+.pr-split{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(32px,7vw,90px)}
+.pr-photo{position:relative;min-height:440px;background:#e5e5dc;overflow:hidden}
+.pr-photo img{width:100%;height:100%;min-height:440px;position:absolute;inset:0;object-fit:cover}
+.pr-photo-label{position:absolute;left:18px;bottom:18px;padding:14px 17px;background:#fff;color:#304438;font-size:9px;font-weight:800;letter-spacing:1.1px}
+.pr-copy .pr-kicker{margin-bottom:17px}
+.pr-copy h2{margin-bottom:20px}
+.pr-copy p{font-size:12px;line-height:2;color:#737e74;margin:0 0 14px}
+.pr-check-list{display:grid;gap:13px;margin:23px 0 0;padding:0;list-style:none}
+.pr-check-list li{display:flex;gap:12px;align-items:flex-start;font-size:11px;color:#526253;line-height:1.7}
+.pr-check-list li:before{content:"✓";display:grid;place-items:center;flex:0 0 22px;height:22px;background:#e9eee5;color:#5b795b;font-weight:800}
+.pr-band{background:#eaece4}
+.pr-callout{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(28px,5vw,52px);background:#304638;color:#fff}
+.pr-callout h2{font:500 clamp(28px,4vw,42px)/1.1 "Playfair Display",serif;margin:8px 0 0}
+.pr-callout p{color:#ffffffb8;font-size:11px;line-height:1.8;max-width:560px}
+.pr-callout .pr-kicker{color:#d8c38f}
+.pr-dynamic-feed{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pr-dynamic-feed:empty{display:block}
+.pr-dynamic-feed .public-event-card,.pr-dynamic-feed .public-ministry-card,.pr-dynamic-feed .public-sermon-card{margin:0;min-width:0;background:#fff;border:1px solid #e8e6dc;overflow:hidden}
+.pr-dynamic-feed .public-event-card>img,.pr-dynamic-feed .public-ministry-card>img{width:100%;height:205px;object-fit:cover;display:block}
+.pr-dynamic-feed .public-event-content,.pr-dynamic-feed .public-ministry-content,.pr-dynamic-feed .public-sermon-content{padding:20px}
+.pr-dynamic-feed h3{font:600 21px/1.2 "Playfair Display",serif;color:#304438;margin:10px 0}
+.pr-dynamic-feed p{font-size:11px;line-height:1.8;color:#778078}
+.pr-dynamic-feed .public-event-date,.pr-dynamic-feed .public-ministry-meta,.pr-dynamic-feed .public-sermon-meta{font-size:9px;color:#9a8253;font-weight:800;letter-spacing:.5px}
+.pr-dynamic-feed .public-event-venue{font-size:10px;color:#536c55}
+.pr-dynamic-feed .public-sermon-art{height:210px;position:relative;background:#e8eae3;overflow:hidden}
+.pr-dynamic-feed .public-sermon-art img{width:100%;height:100%;object-fit:cover}
+.pr-dynamic-feed .public-sermon-art .sermon-card-thumb{display:block}
+.pr-dynamic-feed .public-sermon-content{padding:20px}
+.pr-dynamic-feed .sermon-watch-button{border:0;background:#304638;color:#fff;padding:11px 15px;font-size:9px;font-weight:800;cursor:pointer}
+.pr-dynamic-feed .sermon-play-overlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border:0;border-radius:50%;background:#fff;color:#304638;cursor:pointer}
+.pr-dynamic-feed .sermon-card-placeholder,.pr-dynamic-feed .public-ministry-symbol{height:205px;display:grid;place-items:center;background:#e9ede5;color:#60765e;font-size:42px}
+.pr-dynamic-feed .sermon-empty,.pr-dynamic-feed .event-feed-empty,.pr-dynamic-feed .ministry-empty{grid-column:1/-1;padding:25px;background:#fff;border:1px solid #e8e6dc;color:#748075;font-size:12px}
+.pr-event-intro{display:flex;align-items:center;gap:12px;color:#7a857b;font-size:10px;margin-bottom:24px}
+.pr-event-intro:before{content:"";width:7px;height:7px;border-radius:50%;background:#88a17e}
+.pr-contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.pr-contact-card{padding:25px;background:#fff;border:1px solid #e8e6dc}
+.pr-contact-card span{font-size:22px;color:#a48b5c}
+.pr-contact-card h3{font:600 21px "Playfair Display",serif;margin:15px 0 8px;color:#304438}
+.pr-contact-card p{font-size:11px;line-height:1.8;color:#748075}
+.pr-contact-card a{display:inline-flex;margin-top:12px;color:#536c55;font-size:10px;font-weight:800;text-decoration:none}
+.pr-giving-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:25px}
+.pr-giving-step{padding:20px;background:#fff;border:1px solid #e8e6dc}
+.pr-giving-step b{display:block;font:500 28px "Playfair Display",serif;color:#a48b5c}
+.pr-giving-step h3{font:600 18px "Playfair Display",serif;margin:10px 0;color:#304438}
+.pr-giving-step p{font-size:10px;line-height:1.8;color:#748075}
+.pr-info-note{margin-top:20px;padding:17px 19px;border-left:3px solid #bda978;background:#f0efe8;color:#68766a;font-size:10px;line-height:1.8}
+@media(max-width:800px){.pr-section-head{align-items:flex-start;flex-direction:column}.pr-grid,.pr-dynamic-feed,.pr-contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pr-split{grid-template-columns:1fr}.pr-photo,.pr-photo img{min-height:330px}.pr-callout{align-items:flex-start;flex-direction:column}.pr-giving-steps{grid-template-columns:1fr}}
+@media(max-width:540px){.pr-hero{min-height:560px}.pr-hero-inner{padding:90px 0 50px}.pr-hero h1{font-size:clamp(43px,13vw,61px);letter-spacing:-1.5px}.pr-hero-copy{font-size:12px}.pr-hero-note{margin-top:35px}.pr-grid,.pr-dynamic-feed,.pr-contact-grid{grid-template-columns:1fr}.pr-card img,.pr-dynamic-feed .public-event-card>img,.pr-dynamic-feed .public-ministry-card>img,.pr-dynamic-feed .public-sermon-art{height:225px}.pr-section{padding:58px 0}.pr-wrap{width:88%}.pr-photo,.pr-photo img{min-height:280px}}
+@media(prefers-reduced-motion:reduce){.pr-card,.pr-btn{transition:none}.pr-card:hover,.pr-btn:hover{transform:none}}
