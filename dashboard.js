@@ -22,6 +22,8 @@ if(sessionError || !session){
   const {data:role,error:roleError}=await supabase.rpc("get_my_role");
   if(roleError){
     messageEl.textContent="We couldn't verify your account permissions. Please refresh or sign in again.";
+  }else if(role==="super_admin"){
+    location.replace("super-admin.html");
   }else if(role==="admin"){
     location.replace("admin.html");
   }else{
