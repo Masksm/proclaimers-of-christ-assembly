@@ -108,7 +108,8 @@ async function loadHealth(){
   ["Supabase project",new URL(PROJECT_URL).hostname=== "hlnkyczwdgvnrvuhdypk.supabase.co","hlnkyczwdgvnrvuhdypk"],
   ["Browser API key",PUBLIC_KEY.startsWith("sb_publishable_"),"Publishable key configured; no service key used in browser"],
   ["Current website host",true,location.hostname],
-  ["Storage buckets",buckets.length>0,buckets.map(b=>b.name+(b.public?" (public)":" (private)")).join(", ")||"No buckets found"],\n  ["Anonymous RPC permissions",Number(health.anonymous_security_definer_count||0)===0,(health.anonymous_security_definer_count||0)+" anonymous-executable privileged functions"]
+  ["Storage buckets",buckets.length>0,buckets.map(b=>b.name+(b.public?" (public)":" (private)")).join(", ")||"No buckets found"],
+  ["Anonymous RPC permissions",Number(health.anonymous_security_definer_count||0)===0,(health.anonymous_security_definer_count||0)+" anonymous-executable privileged functions"]
  ];
  $("#sa-config-checks").innerHTML=config.map(c=>'<div class="sa-config-row"><span class="sa-health-dot '+(c[1]?"pass":"fail")+'"></span><b>'+esc(c[0])+'</b><small>'+esc(c[2])+'</small><strong class="'+(c[1]?"pass":"fail")+'">'+(c[1]?"OK":"REVIEW")+'</strong></div>').join("");
  $("#sa-health-checked").textContent="Last checked: "+fmt(health.checked_at)+" · Database size: "+(Number(health.database_size_bytes||0)/1024/1024).toFixed(1)+" MB · Registered accounts: "+Number(health.registered_accounts||0);
