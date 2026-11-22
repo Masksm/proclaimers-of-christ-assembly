@@ -126,6 +126,14 @@ async function loadMemberAnnouncements(){
  const visible=(notifications||[]).filter(item=>item.announcement&&item.announcement.status==="published");
  const unread=visible.filter(item=>!item.read_at).length;
  [notificationBellCount,notificationNavCount].forEach(counter=>{if(!counter)return;counter.textContent=String(unread);counter.hidden=unread===0;});
+ const homePreview=document.querySelector("#member-home-announcements");
+ if(homePreview){
+  const preview=visible.slice(0,3);
+  homePreview.innerHTML=preview.length?preview.map(item=>{
+   const a=item.announcement;
+   return '<article class="member-home-update"><time>'+escapeAnnouncementText(announcementDate(a.published_at||item.created_at))+'</time><h4>'+escapeAnnouncementText(a.title)+'</h4><p>'+escapeAnnouncementText(String(a.body||"").slice(0,145))+(String(a.body||"").length>145?"…":"")+'</p></article>';
+  }).join(""):'<p class="member-home-update-empty">No announcements yet. New church updates will appear here when published.</p>';
+ }
  if(!visible.length){announcementList.innerHTML='<div class="member-announcement-empty"><span>✦</span><strong>You’re all caught up.</strong><p>New church notices will appear here when published.</p></div>';return;}
  announcementList.innerHTML=visible.map(item=>{const a=item.announcement;return '<article class="member-announcement-item '+(item.read_at?'is-read':'is-unread')+'" data-member-notification="'+escapeAnnouncementText(item.id)+'"><div class="member-announcement-item-top"><span class="member-announcement-status">'+(item.read_at?'READ':'NEW')+'</span><time>'+escapeAnnouncementText(announcementDate(a.published_at||item.created_at))+'</time></div><h3>'+escapeAnnouncementText(a.title)+'</h3><p>'+escapeAnnouncementText(a.body).replace(/\n/g,'<br>')+'</p>'+(item.read_at?'':'<button type="button" data-mark-notification-read="'+escapeAnnouncementText(item.id)+'">Mark as read</button>')+'</article>';}).join("");
 }
