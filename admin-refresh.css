@@ -57,3 +57,5 @@ body.admin-workspace{background:#f4f5ef}
 .admin-workspace .events-modal[aria-hidden="false"]{scroll-margin-top:20px}
 .admin-workspace .events-modal[role="region"] .events-modal-header h2{font-size:25px}
 @media(max-width:760px){.admin-workspace .events-modal-panel{width:100%;padding:17px}.admin-workspace .events-manager-grid{grid-template-columns:1fr}.admin-workspace .events-modal:not([hidden]){padding-top:15px}}
+
+.admin-workspace{overflow:auto!important}
