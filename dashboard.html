@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="member.css">
   <link rel="stylesheet" href="design-system.css">
+  <link rel="stylesheet" href="member-refresh.css">
 </head>
 <body class="member-page member-portal-layout">
   <header class="member-header">
@@ -74,11 +75,23 @@
       </section>
 
       
+      <section class="member-home-updates" aria-label="Latest church updates">
+        <article class="member-home-updates-panel">
+          <div class="member-home-updates-head"><div><p class="member-eyebrow">STAY INFORMED</p><h3>Latest announcements</h3></div><button type="button" data-open-member-view="announcements">View all →</button></div>
+          <div id="member-home-announcements" class="member-home-update-list" aria-live="polite"><p class="member-home-update-empty">Loading church updates…</p></div>
+        </article>
+        <article class="member-home-updates-panel">
+          <div class="member-home-updates-head"><div><p class="member-eyebrow">WHAT'S COMING UP</p><h3>Upcoming gatherings</h3></div><button type="button" data-open-member-view="events">View all →</button></div>
+          <div id="member-home-event-list" class="member-home-event-list" aria-live="polite"><p class="member-home-update-empty">Loading upcoming events…</p></div>
+        </article>
+      </section>
+
       <section class="member-view" id="member-view-announcements" data-view-panel="announcements" hidden>
         <div class="member-page-heading"><div><p class="member-eyebrow">CHURCH FAMILY UPDATES</p><h1>Announcements <em>& notices.</em></h1><p>Important messages, church news and updates shared with members.</p></div><span class="member-date-chip">MEMBER NOTIFICATION CENTRE</span></div>
         <div class="member-content-panel"><div class="member-panel-heading"><div><span class="member-panel-icon">♧</span><div><h2>From the church</h2><p>Your church announcements and recent notifications.</p></div></div><button type="button" class="member-announcements-mark-all" id="member-mark-all-read">Mark all as read</button></div><div id="member-announcement-list" class="member-announcement-list" aria-live="polite"><p class="member-announcement-empty">Loading announcements…</p></div></div>
       </section>
-\n      <section class="member-view" id="member-view-live" data-view-panel="live" hidden>
+
+      <section class="member-view" id="member-view-live" data-view-panel="live" hidden>
         <div class="member-page-heading"><div><p class="member-eyebrow">WORSHIP WITH US ONLINE</p><h1>Live worship <em>room.</em></h1><p>Join the broadcast from Proclaimers of Christ Assembly wherever you are.</p></div><span class="member-date-chip"><i></i> YOUTUBE LIVE PLAYER</span></div>
         <div class="member-live-panel">
           <div class="member-live-topline"><span><i class="member-live-indicator"></i> CHURCH BROADCAST</span><span>PROCLAIMERS OF CHRIST ASSEMBLY</span></div>
