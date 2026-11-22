@@ -170,3 +170,5 @@ $("#sa-signout").addEventListener("click",async()=>{await supabase.auth.signOut(
 if(await authGuard()){
  await Promise.all([loadUsers(),loadAudit(),loadReports(),loadHealth()]);
 }
+setInterval(()=>{if(!document.hidden){loadHealth();loadReports();}},5*60*1000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden){loadHealth();}});
