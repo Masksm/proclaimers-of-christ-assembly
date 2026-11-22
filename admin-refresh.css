@@ -44,3 +44,16 @@ body.admin-workspace{background:#f4f5ef}
 @media(max-width:1000px){.admin-workspace .main{padding:0 22px}.admin-workspace .topbar-right{gap:12px}.admin-workspace .secure-label{display:none}}
 @media(max-width:760px){.admin-workspace .sidebar{width:270px}.admin-workspace .main{margin-left:0;padding:0 15px}.admin-workspace .welcome-panel{padding:26px 22px;min-height:265px}.admin-workspace .welcome-panel h1{font-size:34px}.admin-workspace .management-grid{grid-template-columns:1fr}.admin-workspace .management-card{min-height:155px}.admin-quick-actions{align-items:stretch}.admin-quick-actions>div{flex-basis:100%}.admin-quick-action{flex:1;justify-content:center;min-width:125px}.admin-workspace .bottom-grid{grid-template-columns:1fr}.admin-workspace .events-modal-panel{width:calc(100vw - 16px);max-height:94vh}.admin-workspace .events-manager-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.admin-quick-action{transition:none}.admin-quick-action:hover{transform:none}}
+
+/* Managers open as inline workspaces rather than blocking pop-up dialogs. */
+.admin-workspace.modal-open{overflow:auto!important}
+.admin-workspace .events-modal:not([hidden]){position:relative;inset:auto;z-index:1;display:block;padding:22px 0 0;background:transparent;overflow:visible;animation:none}
+.admin-workspace .events-modal-backdrop{display:none!important}
+.admin-workspace .events-modal-panel{position:relative;inset:auto;transform:none;width:100%;max-width:none;max-height:none;margin:0;padding:24px;background:#fff;border:1px solid #e3e6dd;border-radius:8px;box-shadow:0 8px 25px #26382d0a;overflow:visible;animation:none}
+.admin-workspace .events-modal-header{position:relative;padding-bottom:17px;border-bottom:1px solid #edf0e9}
+.admin-workspace .events-modal-close{position:absolute;right:0;top:0}
+.admin-workspace .events-manager-grid{grid-template-columns:minmax(280px,.9fr) minmax(0,1.1fr);align-items:start}
+.admin-workspace .event-form,.admin-workspace .event-list-panel{box-shadow:none;border:1px solid #e9ece5;background:#fbfcf9}
+.admin-workspace .events-modal[aria-hidden="false"]{scroll-margin-top:20px}
+.admin-workspace .events-modal[role="region"] .events-modal-header h2{font-size:25px}
+@media(max-width:760px){.admin-workspace .events-modal-panel{width:100%;padding:17px}.admin-workspace .events-manager-grid{grid-template-columns:1fr}.admin-workspace .events-modal:not([hidden]){padding-top:15px}}
