@@ -100,10 +100,21 @@ async function loadHealth(){
  ]);
  if(error){$("#sa-health-grid").innerHTML='<article class="sa-health-item"><span class="sa-health-dot fail"></span><div><b>Health check failed</b><small>'+esc(error.message)+'</small></div></article>';setFeedback("#sa-health-feedback",error.message,true);return;}
  health=data||{};
+ health.auth_service_reachable=!authError&&!!authData?.user;
+ let storageApiReachable=null,storageApiDetail="No public image available for probe";
+ if(health.storage_probe_path){
+  try{
+   const objectPath=health.storage_probe_path.split("/").map(encodeURIComponent).join("/");
+   const response=await fetch(PROJECT_URL+"/storage/v1/object/public/"+encodeURIComponent(health.storage_probe_bucket)+"/"+objectPath,{method:"HEAD"});
+   storageApiReachable=response.ok;storageApiDetail="Public object endpoint returned HTTP "+response.status;
+  }catch{storageApiReachable=false;storageApiDetail="Storage request failed at network level";}
+ }
  const checks=[
   ["Database connection",health.database_status==="healthy","PostgreSQL "+(health.database_version||"")],
-  ["Authentication schema",!!health.auth_schema_reachable,"Auth user directory is reachable"],\n  ["Authentication API",!!health.auth_service_reachable,authError?.message||"Authenticated user lookup succeeded"],
-  ["Storage configuration",!!health.storage_schema_reachable,(health.storage_bucket_count||0)+" storage buckets configured"],\n  ["Public storage delivery",storageApiReachable===null?!!health.storage_schema_reachable:storageApiReachable,storageApiDetail],
+  ["Authentication schema",!!health.auth_schema_reachable,"Auth user directory is reachable"],
+  ["Authentication API",!!health.auth_service_reachable,authError?.message||"Authenticated user lookup succeeded"],
+  ["Storage configuration",!!health.storage_schema_reachable,(health.storage_bucket_count||0)+" storage buckets configured"],
+  ["Public storage delivery",storageApiReachable===null?!!health.storage_schema_reachable:storageApiReachable,storageApiDetail],
   ["Required database tables",!!health.all_required_tables_present,(health.required_tables_present||0)+" of "+(health.required_tables_total||0)+" required tables found"],
   ["Row-level security",!!health.all_required_tables_protected,(health.rls_enabled_tables||0)+" of "+(health.required_tables_total||0)+" core tables have RLS enabled"],
   ["Anonymous privileged RPC exposure",Number(health.anonymous_security_definer_count||0)===0,(health.anonymous_security_definer_count||0)+" public SECURITY DEFINER functions executable by anonymous users"]
