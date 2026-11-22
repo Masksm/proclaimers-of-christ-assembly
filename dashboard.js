@@ -81,6 +81,15 @@ function showMemberView(view,updateHash=true){
 }
 memberNavItems.forEach(button=>button.addEventListener("click",()=>showMemberView(button.dataset.memberView)));
 document.querySelectorAll("[data-open-member-view]").forEach(button=>button.addEventListener("click",()=>showMemberView(button.dataset.openMemberView)));
+function closeMemberNavigation(){
+ memberNav?.classList.remove("open");
+ memberMenu?.setAttribute("aria-expanded","false");
+ if(memberMenu){memberMenu.setAttribute("aria-label","Open navigation");memberMenu.textContent="☰";}
+}
+document.addEventListener("click",event=>{
+ if(memberNav?.classList.contains("open")&&!event.target.closest("#member-nav")&&!event.target.closest("#member-menu-toggle"))closeMemberNavigation();
+});
+document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMemberNavigation();});
 if(memberMenu&&memberNav){
  memberMenu.addEventListener("click",()=>{
   const open=memberNav.classList.toggle("open");
