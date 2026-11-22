@@ -90,6 +90,7 @@ function refreshSecurityAlerts(){
  const exposed=health?.anonymous_security_definer_functions||[];
  if(exposed.length)alerts.push({severity:"high",title:"Anonymous privileged database functions",count:exposed.length,detail:exposed.map(x=>x.function).join(", ")});
  alerts.push({severity:"medium",title:"Supabase leaked-password protection is disabled",count:1,detail:"Last Supabase security-advisor check: compromised-password screening is off. Enable it in Authentication → Settings → Password security.",link:"https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection"});
+ alerts.push({severity:"medium",title:"Review authenticated SECURITY DEFINER endpoints",count:8,detail:"Supabase's latest advisor check flags eight privileged functions callable by signed-in users. The console's role-management and reporting functions enforce server-side identity checks; review this set whenever RPCs change.",link:"https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable"});
  renderSecurityAlerts(alerts);
 }
 async function loadHealth(){
