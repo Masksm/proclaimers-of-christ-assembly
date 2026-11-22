@@ -2,7 +2,7 @@ import {createClient} from "https://esm.sh/@supabase/supabase-js@2";
 const supabase=createClient("https://hlnkyczwdgvnrvuhdypk.supabase.co","sb_publishable_KRxRK1s-EIgOUZ7VdKBj_Q_WwqswkIl");
 const {data:{session}}=await supabase.auth.getSession();
 if(!session){location.replace("login.html");}
-else{const {data:role,error}=await supabase.rpc("get_my_role");if(error||!["admin","super_admin"].includes(role)){location.replace("dashboard.html");}else{const superLink=document.querySelector("#super-admin-link");if(role==="super_admin"&&superLink)superLink.hidden=false;const email=session.user.email||"Administrator";document.querySelector("#admin-email").textContent=email;document.querySelector("#account-status").textContent="Signed in as "+email+". Administrator permissions were confirmed by the database.";document.querySelector("#year").textContent=String(new Date().getFullYear());}}
+else{const {data:role,error}=await supabase.rpc("get_my_role");if(error||!["admin","super_admin"].includes(role)){location.replace("dashboard.html");}else{const superLink=document.querySelector("#super-admin-link");if(superLink){superLink.hidden=role!=="super_admin";superLink.style.display=role==="super_admin"?"flex":"none";}const email=session.user.email||"Administrator";document.querySelector("#admin-email").textContent=email;document.querySelector("#account-status").textContent="Signed in as "+email+". Administrator permissions were confirmed by the database.";document.querySelector("#year").textContent=String(new Date().getFullYear());}}
 
 async function loadAdminOverview(){
  const now=new Date().toISOString();
